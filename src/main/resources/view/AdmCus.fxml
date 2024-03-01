@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane fx:id="customerPane" prefHeight="735.0" prefWidth="984.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.AdmCusController">
+   <children>
+      <AnchorPane fx:id="admDashPane" prefHeight="735.0" prefWidth="984.0" style="-fx-background-color: white; -fx-background-radius: 20;">
+         <children>
+            <ImageView fitHeight="735.0" fitWidth="984.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/customerAdm.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="67.0" layoutY="38.0" text="Customers">
+               <font>
+                  <Font name="SansSerif Bold" size="26.0" />
+               </font>
+            </Label>
+            <Label layoutX="620.0" layoutY="134.0" text="TOTAL CUSTOMERS">
+               <font>
+                  <Font name="SansSerif Regular" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="807.0" layoutY="156.0" text="10000" textFill="WHITE">
+               <font>
+                  <Font name="SansSerif Bold" size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="53.0" layoutY="381.0" text="Borrowing Details">
+               <font>
+                  <Font name="SansSerif Bold" size="15.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtSearch" layoutX="449.0" layoutY="368.0" prefHeight="40.0" prefWidth="341.0" promptText="find customer details" style="-fx-background-color: #EDEBE5;">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </TextField>
+            <Button layoutX="790.0" layoutY="368.0" mnemonicParsing="false" onAction="#btnSearchOnAction" prefHeight="40.0" prefWidth="119.0" style="-fx-background-color: #1C3F3A;" text="Search" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <TableView fx:id="CusTbl" layoutX="53.0" layoutY="444.0" prefHeight="248.0" prefWidth="877.0">
+               <columns>
+                  <TableColumn fx:id="colCusId" prefWidth="75.0" text="Customer ID" />
+                  <TableColumn fx:id="colName" prefWidth="226.0" text="Name" />
+                  <TableColumn fx:id="colAddress" prefWidth="108.0" text="Address" />
+                  <TableColumn fx:id="colEmail" prefWidth="304.0" text="Email" />
+                  <TableColumn fx:id="colContact" prefWidth="162.0" text="Contact" />
+               </columns>
+            </TableView>
+            <TextField fx:id="txtId" layoutX="67.0" layoutY="122.0" prefHeight="31.0" prefWidth="119.0" promptText="ID" style="-fx-background-color: white;" />
+            <TextField fx:id="txtAddress" layoutX="67.0" layoutY="174.0" prefHeight="31.0" prefWidth="119.0" promptText="Address" style="-fx-background-color: white;" />
+            <TextField fx:id="txtContact" layoutX="67.0" layoutY="225.0" prefHeight="31.0" prefWidth="119.0" promptText="Contact" style="-fx-background-color: white;" />
+            <TextField fx:id="txtName" layoutX="203.0" layoutY="122.0" prefHeight="31.0" prefWidth="241.0" promptText="Name" style="-fx-background-color: white;" />
+            <TextField fx:id="txtEmail" layoutX="203.0" layoutY="174.0" prefHeight="31.0" prefWidth="241.0" promptText="Email" style="-fx-background-color: white;" />
+            <Button layoutX="203.0" layoutY="225.0" mnemonicParsing="false" onAction="#btnSaveOrUpdateOnAction" prefHeight="31.0" prefWidth="119.0" style="-fx-background-color: #1C3F3A;" text="SAVE" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <Button layoutX="340.0" layoutY="225.0" mnemonicParsing="false" onAction="#btnDeleteOnAction" prefHeight="31.0" prefWidth="104.0" style="-fx-background-color: D10000;" text="REMOVE" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

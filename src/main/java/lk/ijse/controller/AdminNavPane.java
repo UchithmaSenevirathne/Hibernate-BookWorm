@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import lk.ijse.navigation.Navigation;
 
 import java.io.IOException;
 
@@ -52,11 +53,28 @@ public class AdminNavPane {
 
     @FXML
     void customerOnAction(MouseEvent event) {
-
+        try {
+            Navigation.navigate(Routes.CUSTOMER, admPane);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @FXML
     void dashBoardOnAction(MouseEvent event) {
+        try {
+            Navigation.navigate(Routes.ADMDASHBOARD, admPane);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
+    @FXML
+    void logoutOnAction(MouseEvent event) {
+        try {
+            Navigation.navigate(Routes.LOGIN, navPane);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

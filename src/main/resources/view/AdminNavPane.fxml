@@ -155,7 +155,7 @@
             </ImageView>
          </children>
       </Pane>
-      <Label graphicTextGap="5.0" layoutX="133.0" layoutY="517.0" text="Log out" textFill="#838383">
+      <Label graphicTextGap="5.0" layoutX="133.0" layoutY="517.0" onMouseClicked="#logoutOnAction" text="Log out" textFill="#838383">
          <font>
             <Font name="SansSerif Regular" size="12.0" />
          </font>
