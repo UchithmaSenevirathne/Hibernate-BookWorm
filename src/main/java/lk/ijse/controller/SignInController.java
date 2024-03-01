@@ -30,15 +30,15 @@ public class SignInController {
     @FXML
     void btnLoginOnAction(ActionEvent event) {
         String userName = txtUserName.getText();
-        String password = txtPassword.getText();
 
         try {
 
-            boolean isIn = userService.searchUser(userName, password);
+            boolean isIn = userService.searchUser(userName);
             if (!isIn) {
                 new Alert(Alert.AlertType.WARNING, "Invalid UserName or Password").show();
             } else {
-                isAdmin(userName, password);
+                System.out.println("user in");
+                isAdmin(userName);
             }
 
         } catch (Exception e) {
@@ -46,20 +46,21 @@ public class SignInController {
         }
     }
 
-    private void isAdmin(String userName, String password) {
+    private void isAdmin(String username) {
         try {
 
-            boolean isAdmin = userService.checkAdmin(userName,password);
+            boolean isAdmin = userService.checkAdmin(username);
 
             if(isAdmin){
                 System.out.println("admin");
-//                Parent rootNode = FXMLLoader.load(getClass().getResource("/view/DashboardForm.fxml"));
-//
-//                Scene scene = new Scene(rootNode);
-//                Stage stage = (Stage) this.signInPane.getScene().getWindow();
-//                stage.setTitle("Dashboard Form");
-//                stage.setScene(scene);
-//                stage.centerOnScreen();
+               Parent rootNode = FXMLLoader.load(this.getClass().getResource("/view/AdminNavPane.fxml"));
+
+                Scene scene = new Scene(rootNode);
+                Stage stage = (Stage) this.signInPane.getScene().getWindow();
+                stage.setTitle("DASHBOARD");
+                stage.setScene(scene);
+                stage.centerOnScreen();
+                stage.show();
             }else{
                 System.out.println("customer");
 //                FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/DriverSchedule.fxml"));

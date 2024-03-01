@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="navPane" prefHeight="832.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.AdminNavPane">
+   <children>
+      <ImageView fitHeight="832.0" fitWidth="1280.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/navPane.png" />
+         </image>
+      </ImageView>
+      <AnchorPane fx:id="admPane" layoutX="247.0" layoutY="48.0" prefHeight="735.0" prefWidth="984.0" style="-fx-background-color: white; -fx-background-radius: 20;">
+         <children>
+            <Label layoutX="89.0" layoutY="269.0" text="10000" textFill="WHITE">
+               <font>
+                  <Font name="SansSerif Bold" size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="269.0" layoutY="269.0" text="10000" textFill="WHITE">
+               <font>
+                  <Font name="SansSerif Bold" size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="449.0" layoutY="269.0" text="10000" textFill="WHITE">
+               <font>
+                  <Font name="SansSerif Bold" size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="631.0" layoutY="269.0" text="10000" textFill="WHITE">
+               <font>
+                  <Font name="SansSerif Bold" size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="813.0" layoutY="269.0" text="10000" textFill="WHITE">
+               <font>
+                  <Font name="SansSerif Bold" size="20.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <Label layoutX="86.0" layoutY="78.0" text="BOOKWORM">
+         <font>
+            <Font name="SansSerif Bold" size="15.0" />
+         </font>
+      </Label>
+      <Pane layoutX="83.0" layoutY="135.0" prefHeight="33.0" prefWidth="35.0" style="-fx-background-color: #FF7552; -fx-background-radius: 10;">
+         <children>
+            <ImageView fitHeight="15.0" fitWidth="15.0" layoutX="10.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/icons/home.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <Pane layoutX="83.0" layoutY="184.0" prefHeight="33.0" prefWidth="35.0" style="-fx-background-color: #A3CB38; -fx-background-radius: 10;">
+         <children>
+            <ImageView fitHeight="15.0" fitWidth="15.0" layoutX="10.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/icons/customer.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <Pane layoutX="83.0" layoutY="234.0" prefHeight="33.0" prefWidth="35.0" style="-fx-background-color: #12CBC4; -fx-background-radius: 10;">
+         <children>
+            <ImageView fitHeight="15.0" fitWidth="15.0" layoutX="10.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/icons/book.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <Pane layoutX="83.0" layoutY="284.0" prefHeight="33.0" prefWidth="35.0" style="-fx-background-color: #FFC312; -fx-background-radius: 10;">
+         <children>
+            <ImageView fitHeight="15.0" fitWidth="15.0" layoutX="10.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/icons/borrow.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <Pane layoutX="83.0" layoutY="333.0" prefHeight="33.0" prefWidth="35.0" style="-fx-background-color: #D980FA; -fx-background-radius: 10;">
+         <children>
+            <ImageView fitHeight="15.0" fitWidth="15.0" layoutX="10.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/icons/admin.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <Pane layoutX="83.0" layoutY="381.0" prefHeight="33.0" prefWidth="35.0" style="-fx-background-color: #ED4C67; -fx-background-radius: 10;">
+         <children>
+            <ImageView fitHeight="15.0" fitWidth="15.0" layoutX="10.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/icons/branch.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <Label graphicTextGap="5.0" layoutX="133.0" layoutY="143.0" onMouseClicked="#dashBoardOnAction" text="Dashboard" textFill="#838383">
+         <font>
+            <Font name="SansSerif Regular" size="12.0" />
+         </font>
+      </Label>
+      <Label graphicTextGap="5.0" layoutX="133.0" layoutY="193.0" onMouseClicked="#customerOnAction" text="Customers" textFill="#838383">
+         <font>
+            <Font name="SansSerif Regular" size="12.0" />
+         </font>
+      </Label>
+      <Label graphicTextGap="5.0" layoutX="133.0" layoutY="243.0" onMouseClicked="#bookOnAction" text="Books" textFill="#838383">
+         <font>
+            <Font name="SansSerif Regular" size="12.0" />
+         </font>
+      </Label>
+      <Label graphicTextGap="5.0" layoutX="133.0" layoutY="293.0" onMouseClicked="#borrowingOnAction" text="Borrowings" textFill="#838383">
+         <font>
+            <Font name="SansSerif Regular" size="12.0" />
+         </font>
+      </Label>
+      <Label graphicTextGap="5.0" layoutX="132.0" layoutY="342.0" onMouseClicked="#adminOnAction" text="Admins" textFill="#838383">
+         <font>
+            <Font name="SansSerif Regular" size="12.0" />
+         </font>
+      </Label>
+      <Label graphicTextGap="5.0" layoutX="132.0" layoutY="390.0" onMouseClicked="#branchOnAction" text="Branches" textFill="#838383">
+         <font>
+            <Font name="SansSerif Regular" size="12.0" />
+         </font>
+      </Label>
+      <Pane layoutX="83.0" layoutY="462.0" prefHeight="33.0" prefWidth="35.0" style="-fx-background-color: #F0F0F0; -fx-background-radius: 10;">
+         <children>
+            <ImageView fitHeight="15.0" fitWidth="15.0" layoutX="10.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/icons/profile.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <Label graphicTextGap="5.0" layoutX="132.0" layoutY="471.0" text="Profile" textFill="#838383">
+         <font>
+            <Font name="SansSerif Regular" size="12.0" />
+         </font>
+      </Label>
+      <Pane layoutX="83.0" layoutY="508.0" prefHeight="33.0" prefWidth="35.0" style="-fx-background-color: #F0F0F0; -fx-background-radius: 10;">
+         <children>
+            <ImageView fitHeight="15.0" fitWidth="15.0" layoutX="9.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/icons/logout.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <Label graphicTextGap="5.0" layoutX="133.0" layoutY="517.0" text="Log out" textFill="#838383">
+         <font>
+            <Font name="SansSerif Regular" size="12.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

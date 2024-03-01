@@ -1,6 +1,8 @@
 package lk.ijse.repository;
 
+import lk.ijse.entity.User;
+
 public interface CRUDRepository <T> extends SuperRepository{
-    boolean search(String userName, String password);
+    User search(String password);
 
 }
