@@ -8,7 +8,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane fx:id="signUpPane" prefHeight="832.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.SignUpController">
    <children>
       <ImageView fitHeight="832.0" fitWidth="1280.0" pickOnBounds="true" preserveRatio="true">
@@ -26,32 +25,22 @@
             <Font name="SansSerif Bold" size="26.0" />
          </font>
       </Label>
-      <TextField fx:id="txtFullName" layoutX="377.0" layoutY="289.0" prefHeight="39.0" prefWidth="290.0" promptText="Full Name" style="-fx-border-color: white; -fx-background-color: white; -fx-border-radius: 5;">
+      <TextField fx:id="txtName" layoutX="444.0" layoutY="289.0" prefHeight="39.0" prefWidth="392.0" promptText="Name" style="-fx-border-color: white; -fx-background-color: white; -fx-border-radius: 5;">
          <font>
             <Font name="SansSerif Regular" size="12.0" />
          </font>
       </TextField>
-      <TextField fx:id="txtAddress" layoutX="686.0" layoutY="289.0" prefHeight="39.0" prefWidth="220.0" promptText="Address" style="-fx-border-color: white; -fx-background-color: white; -fx-border-radius: 5;">
+      <TextField fx:id="txtUserName" layoutX="444.0" layoutY="377.0" prefHeight="39.0" prefWidth="392.0" promptText="E-mail" style="-fx-border-color: white; -fx-background-color: white; -fx-border-radius: 5;">
          <font>
             <Font name="SansSerif Regular" size="12.0" />
          </font>
       </TextField>
-      <TextField fx:id="txtEmail" layoutX="377.0" layoutY="383.0" prefHeight="39.0" prefWidth="290.0" promptText="E-mail" style="-fx-border-color: white; -fx-background-color: white; -fx-border-radius: 5;">
+      <TextField fx:id="txtPassword" layoutX="441.0" layoutY="478.0" prefHeight="39.0" prefWidth="188.0" promptText="Password" style="-fx-border-color: white; -fx-background-color: white; -fx-border-radius: 5;">
          <font>
             <Font name="SansSerif Regular" size="12.0" />
          </font>
       </TextField>
-      <TextField fx:id="txtContact" layoutX="686.0" layoutY="383.0" prefHeight="39.0" prefWidth="220.0" promptText="Contact" style="-fx-border-color: white; -fx-background-color: white; -fx-border-radius: 5;">
-         <font>
-            <Font name="SansSerif Regular" size="12.0" />
-         </font>
-      </TextField>
-      <TextField fx:id="txtPassword" layoutX="377.0" layoutY="478.0" prefHeight="39.0" prefWidth="259.0" promptText="Password" style="-fx-border-color: white; -fx-background-color: white; -fx-border-radius: 5;">
-         <font>
-            <Font name="SansSerif Regular" size="12.0" />
-         </font>
-      </TextField>
-      <TextField fx:id="txtConfirmPwd" layoutX="655.0" layoutY="478.0" prefHeight="39.0" prefWidth="251.0" promptText="Confirm Password" style="-fx-border-color: white; -fx-background-color: white; -fx-border-radius: 5;">
+      <TextField fx:id="txtConfirmPwd" layoutX="655.0" layoutY="478.0" prefHeight="39.0" prefWidth="181.0" promptText="Confirm Password" style="-fx-border-color: white; -fx-background-color: white; -fx-border-radius: 5;">
          <font>
             <Font name="SansSerif Regular" size="12.0" />
          </font>

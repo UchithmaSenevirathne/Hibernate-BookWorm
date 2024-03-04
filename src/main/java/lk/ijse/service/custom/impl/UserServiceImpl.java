@@ -1,6 +1,7 @@
 package lk.ijse.service.custom.impl;
 
 import lk.ijse.config.SessionFactoryConfig;
+import lk.ijse.dto.UserDTO;
 import lk.ijse.entity.User;
 import lk.ijse.repository.RepositoryFactory;
 import lk.ijse.repository.custom.UserRepository;
@@ -14,26 +15,13 @@ public class UserServiceImpl implements UserService {
     UserRepository userRepository = (UserRepository) RepositoryFactory.getRepositoryFactory().getRepository(RepositoryFactory.RepositoryTypes.USER);
 
     @Override
-    public boolean searchUser(String userName) {
+    public boolean searchUser(String userName, String password) {
         session = SessionFactoryConfig.getInstance().getSession();
-        try {
             userRepository.setSession(session);
-            User user = userRepository.search(userName);
+            boolean isUser = userRepository.search(userName, password);
 //            transaction.commit();
             session.close();
-
-            if (user!=null){
-                return true;
-            }else {
-                return false;
-            }
-
-        }catch (Exception e){
-//            transaction.rollback();
-            session.close();
-            e.printStackTrace();
-            return false;
-        }
+            return isUser;
     }
 
     @Override
@@ -44,5 +32,17 @@ public class UserServiceImpl implements UserService {
         boolean admin = userRepository.checkAdmin(userName);
         session.close();
         return admin;
+    }
+
+    @Override
+    public boolean saveUser(UserDTO userDTO) {
+        session = SessionFactoryConfig.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+
+        userRepository.setSession(session);
+        boolean save = userRepository.save(userDTO.toEntity());
+        transaction.commit();
+        session.close();
+        return save;
     }
 }

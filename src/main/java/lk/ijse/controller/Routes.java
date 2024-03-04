@@ -1,5 +1,5 @@
 package lk.ijse.controller;
 
 public enum Routes {
-    LOGIN,ADMDASHBOARD,CUSTOMER
+    LOGIN,ADMDASHBOARD,BOOK
 }

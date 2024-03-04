@@ -38,7 +38,11 @@ public class AdminNavPane {
 
     @FXML
     void bookOnAction(MouseEvent event) {
-
+        try {
+            Navigation.navigate(Routes.BOOK, admPane);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @FXML
@@ -49,15 +53,6 @@ public class AdminNavPane {
     @FXML
     void branchOnAction(MouseEvent event) {
 
-    }
-
-    @FXML
-    void customerOnAction(MouseEvent event) {
-        try {
-            Navigation.navigate(Routes.CUSTOMER, admPane);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
     }
 
     @FXML

@@ -30,10 +30,11 @@ public class SignInController {
     @FXML
     void btnLoginOnAction(ActionEvent event) {
         String userName = txtUserName.getText();
+        String password = txtPassword.getText();
 
         try {
 
-            boolean isIn = userService.searchUser(userName);
+            boolean isIn = userService.searchUser(userName, password);
             if (!isIn) {
                 new Alert(Alert.AlertType.WARNING, "Invalid UserName or Password").show();
             } else {

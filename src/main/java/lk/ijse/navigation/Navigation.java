@@ -26,9 +26,9 @@ public class Navigation {
                 initUI("AdmDash.fxml");
                 window.setTitle("DASHBOARD");
                 break;
-            case CUSTOMER:
-                initUI("AdmCus.fxml");
-                window.setTitle("CUSTOMERS");
+            case BOOK:
+                initUI("AdmBook.fxml");
+                window.setTitle("BOOKS");
                 break;
             default:
                 new Alert(Alert.AlertType.ERROR, "Not suitable Window found!").show();
