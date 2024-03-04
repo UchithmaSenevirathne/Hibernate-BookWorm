@@ -1,6 +1,7 @@
 package lk.ijse.repository;
 
 import lk.ijse.repository.custom.impl.BookRepositoryImpl;
+import lk.ijse.repository.custom.impl.BranchRepositoryImpl;
 import lk.ijse.repository.custom.impl.UserRepositoryImpl;
 
 public class RepositoryFactory {
@@ -13,7 +14,7 @@ public class RepositoryFactory {
     }
 
     public enum RepositoryTypes{
-        USER,BOOK
+        USER,BOOK,BRANCH
     }
 
     public SuperRepository getRepository(RepositoryTypes repositoryTypes){
@@ -23,6 +24,8 @@ public class RepositoryFactory {
                 return new UserRepositoryImpl();
             case BOOK:
                 return new BookRepositoryImpl();
+            case BRANCH:
+                return new BranchRepositoryImpl();
             default:
                 return null;
         }

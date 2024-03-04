@@ -6,15 +6,22 @@ import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 import lk.ijse.dto.BookDTO;
+import lk.ijse.dto.BranchDTO;
 import lk.ijse.dto.tm.BookTM;
+import lk.ijse.entity.Branch;
 import lk.ijse.service.ServiceFactory;
 import lk.ijse.service.custom.BookService;
+import lk.ijse.service.custom.BranchService;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -77,6 +84,8 @@ public class AdmBookController {
 
     private final ObservableList<BookTM> bookTMS = FXCollections.observableArrayList();
 
+    BranchService branchService = (BranchService) ServiceFactory.getServiceFactory().getService(ServiceFactory.ServiceTypes.BRANCH);
+
     public void initialize(){
         setCellValueFactory();
         loadAllBooks();
@@ -128,8 +137,11 @@ public class AdmBookController {
         cmbAvailable.setItems(oblistAvailable);
 
         ObservableList<String> oblistBranch = FXCollections.observableArrayList();
-        oblistBranch.add(0, "Galle");
+        List<BranchDTO> branchDTOS =  branchService.getAllBranches();
 
+        for (BranchDTO branchDTO : branchDTOS){
+            oblistBranch.add(branchDTO.getBranchName());
+        }
         cmbBranch.setItems(oblistBranch);
     }
 
@@ -235,4 +247,18 @@ public class AdmBookController {
 
         btnSave.setText("UPDATE");
     }
+
+    @FXML
+    void btnAddBranchOnAction(ActionEvent event){
+        Stage stage = new Stage();
+        try {
+            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/admBrach.fxml"))));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        stage.setTitle("BRANCHES");
+        stage.centerOnScreen();
+        stage.show();
+    }
+
 }

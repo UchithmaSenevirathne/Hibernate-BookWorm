@@ -56,21 +56,26 @@
                </columns>
             </TableView>
             <TextField fx:id="txtId" layoutX="67.0" layoutY="122.0" prefHeight="31.0" prefWidth="119.0" promptText="ID" style="-fx-background-color: white;" />
-            <TextField fx:id="txtAuthor" layoutX="67.0" layoutY="171.0" prefHeight="31.0" prefWidth="241.0" promptText="Author" style="-fx-background-color: white;" />
-            <TextField fx:id="txtTitle" layoutX="203.0" layoutY="122.0" prefHeight="31.0" prefWidth="241.0" promptText="Title" style="-fx-background-color: white;" />
-            <Button fx:id="btnSave" layoutX="203.0" layoutY="263.0" mnemonicParsing="false" onAction="#btnSaveOrUpdateOnAction" prefHeight="31.0" prefWidth="119.0" style="-fx-background-color: #1C3F3A;" text="SAVE" textFill="WHITE">
+            <TextField fx:id="txtAuthor" layoutX="67.0" layoutY="171.0" prefHeight="31.0" prefWidth="237.0" promptText="Author" style="-fx-background-color: white;" />
+            <TextField fx:id="txtTitle" layoutX="200.0" layoutY="122.0" prefHeight="31.0" prefWidth="237.0" promptText="Title" style="-fx-background-color: white;" />
+            <Button fx:id="btnSave" layoutX="67.0" layoutY="263.0" mnemonicParsing="false" onAction="#btnSaveOrUpdateOnAction" prefHeight="31.0" prefWidth="119.0" style="-fx-background-color: #1C3F3A;" text="SAVE" textFill="WHITE">
                <font>
                   <Font size="14.0" />
                </font>
             </Button>
-            <Button layoutX="340.0" layoutY="263.0" mnemonicParsing="false" onAction="#btnDeleteOnAction" prefHeight="31.0" prefWidth="104.0" style="-fx-background-color: D10000;" text="REMOVE" textFill="WHITE">
+            <Button layoutX="201.0" layoutY="263.0" mnemonicParsing="false" onAction="#btnDeleteOnAction" prefHeight="31.0" prefWidth="119.0" style="-fx-background-color: D10000;" text="REMOVE" textFill="WHITE">
                <font>
                   <Font size="14.0" />
                </font>
             </Button>
-            <ComboBox fx:id="cmbGenre" layoutX="324.0" layoutY="171.0" prefHeight="31.0" prefWidth="119.0" promptText="Genre" style="-fx-background-color: white;" />
-            <ComboBox fx:id="cmbBranch" layoutX="263.0" layoutY="216.0" prefHeight="31.0" prefWidth="180.0" promptText="Available Branch" style="-fx-background-color: white;" />
-            <ComboBox fx:id="cmbAvailable" layoutX="67.0" layoutY="216.0" prefHeight="31.0" prefWidth="180.0" promptText="Availability" style="-fx-background-color: white;" />
+            <ComboBox fx:id="cmbGenre" layoutX="318.0" layoutY="171.0" prefHeight="31.0" prefWidth="119.0" promptText="Genre" style="-fx-background-color: white;" />
+            <ComboBox fx:id="cmbBranch" layoutX="201.0" layoutY="216.0" prefHeight="31.0" prefWidth="130.0" promptText="Available Branch" style="-fx-background-color: white;" />
+            <ComboBox fx:id="cmbAvailable" layoutX="67.0" layoutY="216.0" prefHeight="31.0" prefWidth="119.0" promptText="Availability" style="-fx-background-color: white;" />
+            <Button layoutX="346.0" layoutY="216.0" mnemonicParsing="false" onAction="#btnAddBranchOnAction" prefHeight="31.0" prefWidth="91.0" style="-fx-background-color: lightblue;" text="add branch">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
          </children>
       </AnchorPane>
    </children>
