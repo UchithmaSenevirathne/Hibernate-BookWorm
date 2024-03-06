@@ -6,6 +6,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import lk.ijse.dto.BookDTO;
 import lk.ijse.dto.BranchDTO;
@@ -35,6 +36,8 @@ public class AdmBrachPopup {
 
     @FXML
     private TableColumn<?, ?> colId;
+
+    private int index;
 
     private final ObservableList<BranchTM> branchTMS = FXCollections.observableArrayList();
 
@@ -94,12 +97,23 @@ public class AdmBrachPopup {
         if(type.orElse(no) == yes) {
             int id = Integer.parseInt(branchId.getText());
             //delete item
-            bookService.deleteBook(id);
-
             branchService.closeBranch(id);
             System.out.println("deleted");
         }
         loadAllBranches();
         initUi();
     }
+
+    @FXML
+    void tblOnAction(MouseEvent event) {
+        index = branchTbl.getSelectionModel().getSelectedIndex();
+
+        if(index <= -1){
+            return;
+        }
+
+        branchId.setText(colId.getCellData(index).toString());
+        branchName.setText(colBranch.getCellData(index).toString());
+    }
+
 }
