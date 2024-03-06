@@ -48,7 +48,7 @@
             <Font name="SansSerif Bold" size="15.0" />
          </font>
       </Label>
-      <Pane layoutX="83.0" layoutY="135.0" prefHeight="33.0" prefWidth="35.0" style="-fx-background-color: #FF7552; -fx-background-radius: 10;">
+      <Pane layoutX="83.0" layoutY="155.0" prefHeight="33.0" prefWidth="35.0" style="-fx-background-color: #FF7552; -fx-background-radius: 10;">
          <children>
             <ImageView fitHeight="15.0" fitWidth="15.0" layoutX="10.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -57,7 +57,7 @@
             </ImageView>
          </children>
       </Pane>
-      <Pane layoutX="83.0" layoutY="193.0" prefHeight="33.0" prefWidth="35.0" style="-fx-background-color: #12CBC4; -fx-background-radius: 10;">
+      <Pane layoutX="83.0" layoutY="220.0" prefHeight="33.0" prefWidth="35.0" style="-fx-background-color: #12CBC4; -fx-background-radius: 10;">
          <children>
             <ImageView fitHeight="15.0" fitWidth="15.0" layoutX="10.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -66,7 +66,7 @@
             </ImageView>
          </children>
       </Pane>
-      <Pane layoutX="83.0" layoutY="252.0" prefHeight="33.0" prefWidth="35.0" style="-fx-background-color: #FFC312; -fx-background-radius: 10;">
+      <Pane layoutX="83.0" layoutY="286.0" prefHeight="33.0" prefWidth="35.0" style="-fx-background-color: #FFC312; -fx-background-radius: 10;">
          <children>
             <ImageView fitHeight="15.0" fitWidth="15.0" layoutX="10.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -75,7 +75,7 @@
             </ImageView>
          </children>
       </Pane>
-      <Pane layoutX="83.0" layoutY="310.0" prefHeight="33.0" prefWidth="35.0" style="-fx-background-color: #D980FA; -fx-background-radius: 10;">
+      <Pane layoutX="83.0" layoutY="353.0" prefHeight="33.0" prefWidth="35.0" style="-fx-background-color: #D980FA; -fx-background-radius: 10;">
          <children>
             <ImageView fitHeight="15.0" fitWidth="15.0" layoutX="10.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -84,41 +84,27 @@
             </ImageView>
          </children>
       </Pane>
-      <Pane layoutX="83.0" layoutY="370.0" prefHeight="33.0" prefWidth="35.0" style="-fx-background-color: #ED4C67; -fx-background-radius: 10;">
-         <children>
-            <ImageView fitHeight="15.0" fitWidth="15.0" layoutX="10.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../assets/icons/branch.png" />
-               </image>
-            </ImageView>
-         </children>
-      </Pane>
-      <Label graphicTextGap="5.0" layoutX="133.0" layoutY="143.0" onMouseClicked="#dashBoardOnAction" text="Dashboard" textFill="#838383">
+      <Label graphicTextGap="5.0" layoutX="133.0" layoutY="163.0" onMouseClicked="#dashBoardOnAction" text="Dashboard" textFill="#838383">
          <font>
             <Font name="SansSerif Regular" size="12.0" />
          </font>
       </Label>
-      <Label graphicTextGap="5.0" layoutX="133.0" layoutY="202.0" onMouseClicked="#bookOnAction" text="Books" textFill="#838383">
+      <Label graphicTextGap="5.0" layoutX="133.0" layoutY="229.0" onMouseClicked="#bookOnAction" text="Books" textFill="#838383">
          <font>
             <Font name="SansSerif Regular" size="12.0" />
          </font>
       </Label>
-      <Label graphicTextGap="5.0" layoutX="133.0" layoutY="261.0" onMouseClicked="#borrowingOnAction" text="Borrowings" textFill="#838383">
+      <Label graphicTextGap="5.0" layoutX="133.0" layoutY="295.0" onMouseClicked="#borrowingOnAction" text="Borrowings" textFill="#838383">
          <font>
             <Font name="SansSerif Regular" size="12.0" />
          </font>
       </Label>
-      <Label graphicTextGap="5.0" layoutX="132.0" layoutY="319.0" onMouseClicked="#adminOnAction" text="Admins" textFill="#838383">
+      <Label graphicTextGap="5.0" layoutX="132.0" layoutY="362.0" onMouseClicked="#adminOnAction" text="Admins" textFill="#838383">
          <font>
             <Font name="SansSerif Regular" size="12.0" />
          </font>
       </Label>
-      <Label graphicTextGap="5.0" layoutX="132.0" layoutY="379.0" onMouseClicked="#branchOnAction" text="Branches" textFill="#838383">
-         <font>
-            <Font name="SansSerif Regular" size="12.0" />
-         </font>
-      </Label>
-      <Pane layoutX="83.0" layoutY="462.0" prefHeight="33.0" prefWidth="35.0" style="-fx-background-color: #F0F0F0; -fx-background-radius: 10;">
+      <Pane layoutX="83.0" layoutY="489.0" prefHeight="33.0" prefWidth="35.0" style="-fx-background-color: #F0F0F0; -fx-background-radius: 10;">
          <children>
             <ImageView fitHeight="15.0" fitWidth="15.0" layoutX="10.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -127,12 +113,12 @@
             </ImageView>
          </children>
       </Pane>
-      <Label graphicTextGap="5.0" layoutX="132.0" layoutY="471.0" text="Profile" textFill="#838383">
+      <Label graphicTextGap="5.0" layoutX="132.0" layoutY="498.0" text="Profile" textFill="#838383">
          <font>
             <Font name="SansSerif Regular" size="12.0" />
          </font>
       </Label>
-      <Pane layoutX="83.0" layoutY="521.0" prefHeight="33.0" prefWidth="35.0" style="-fx-background-color: #F0F0F0; -fx-background-radius: 10;">
+      <Pane layoutX="83.0" layoutY="548.0" prefHeight="33.0" prefWidth="35.0" style="-fx-background-color: #F0F0F0; -fx-background-radius: 10;">
          <children>
             <ImageView fitHeight="15.0" fitWidth="15.0" layoutX="9.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -141,7 +127,7 @@
             </ImageView>
          </children>
       </Pane>
-      <Label graphicTextGap="5.0" layoutX="133.0" layoutY="530.0" onMouseClicked="#logoutOnAction" text="Log out" textFill="#838383">
+      <Label graphicTextGap="5.0" layoutX="133.0" layoutY="557.0" onMouseClicked="#logoutOnAction" text="Log out" textFill="#838383">
          <font>
             <Font name="SansSerif Regular" size="12.0" />
          </font>

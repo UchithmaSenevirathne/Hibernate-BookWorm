@@ -30,6 +30,14 @@ public class Navigation {
                 initUI("AdmBook.fxml");
                 window.setTitle("BOOKS");
                 break;
+            case ADMIN:
+                initUI("adminManage.fxml");
+                window.setTitle("ADMIN");
+                break;
+            case CUSDASHBOARD:
+                initUI("cusDiscover.fxml");
+                window.setTitle("DISCOVER");
+                break;
             default:
                 new Alert(Alert.AlertType.ERROR, "Not suitable Window found!").show();
         }

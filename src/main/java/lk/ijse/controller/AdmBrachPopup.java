@@ -42,9 +42,7 @@ public class AdmBrachPopup {
     private final ObservableList<BranchTM> branchTMS = FXCollections.observableArrayList();
 
     BranchService branchService = (BranchService) ServiceFactory.getServiceFactory().getService(ServiceFactory.ServiceTypes.BRANCH);
-    BookService bookService = (BookService) ServiceFactory.getServiceFactory().getService(ServiceFactory.ServiceTypes.BOOK);
 
-    private AdmBookController admBookController;
     public void initialize(){
         setCellValueFactory();
         loadAllBranches();

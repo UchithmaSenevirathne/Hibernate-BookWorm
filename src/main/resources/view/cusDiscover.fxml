@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="735.0" prefWidth="984.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.CusDiscoverController">
+   <children>
+      <AnchorPane prefHeight="735.0" prefWidth="984.0" style="-fx-background-color: white; -fx-background-radius: 20;">
+         <children>
+            <ImageView fitHeight="735.0" fitWidth="984.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/cusDash.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="67.0" layoutY="38.0" text="Discover">
+               <font>
+                  <Font name="SansSerif Bold" size="26.0" />
+               </font>
+            </Label>
+            <Label layoutX="67.0" layoutY="169.0" text="Book Recomandation" textFill="#0000009b">
+               <font>
+                  <Font name="SansSerif Regular" size="15.0" />
+               </font>
+            </Label>
+            <Button layoutX="425.0" layoutY="96.0" mnemonicParsing="false" onAction="#btnSearchOnAction" prefHeight="40.0" prefWidth="102.0" style="-fx-background-color: #1C3F3A;" text="Search" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <TableView fx:id="bookTable" layoutX="54.0" layoutY="456.0" onMouseClicked="#tblOnAction" prefHeight="248.0" prefWidth="877.0">
+               <columns>
+                  <TableColumn fx:id="colBId" prefWidth="75.0" text="Book ID" />
+                  <TableColumn fx:id="colTitle" prefWidth="226.0" text="Title" />
+                  <TableColumn fx:id="colAuthor" prefWidth="237.0" text="Author" />
+                  <TableColumn fx:id="colGenre" prefWidth="175.0" text="Genre" />
+                  <TableColumn fx:id="colAvailability" prefWidth="162.0" text="Availability" />
+               </columns>
+            </TableView>
+            <TextField fx:id="txtSearch" layoutX="65.0" layoutY="96.0" prefHeight="40.0" prefWidth="360.0" promptText="find the book you like" style="-fx-background-color: white;" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

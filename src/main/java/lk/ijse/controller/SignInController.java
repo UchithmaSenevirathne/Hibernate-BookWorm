@@ -64,21 +64,14 @@ public class SignInController {
                 stage.show();
             }else{
                 System.out.println("customer");
-//                FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/DriverSchedule.fxml"));
-//
-//                Parent rootNode = loader.load();
-//
-//                DriverScheduleController driverScheduleController = loader.getController();
-//
-//                List<ScheduleDTO> dtoList = userBO.getSchedule(userName);
-//                System.out.println(dtoList);
-//                driverScheduleController.setScheduleData(dtoList, userName);
-//
-//                Scene scene = new Scene(rootNode);
-//                Stage stage = (Stage) this.rootNode.getScene().getWindow();
-//                stage.setTitle("Driver Schedule Form");
-//                stage.setScene(scene);
-//                stage.centerOnScreen();
+                Parent rootNode = FXMLLoader.load(this.getClass().getResource("/view/CustomerNavPane.fxml"));
+
+                Scene scene = new Scene(rootNode);
+                Stage stage = (Stage) this.signInPane.getScene().getWindow();
+                stage.setTitle("DISCOVER");
+                stage.setScene(scene);
+                stage.centerOnScreen();
+                stage.show();
             }
 
         }catch (Exception e){
