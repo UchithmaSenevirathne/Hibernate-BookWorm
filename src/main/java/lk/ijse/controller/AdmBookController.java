@@ -110,7 +110,7 @@ public class AdmBookController {
                     bookDTO.getTitle(),
                     bookDTO.getAuthor(),
                     bookDTO.getGenre(),
-                    bookDTO.getBranch(),
+                    bookDTO.getBranchName(),
                     bookDTO.getAvailability())
             );
         }
@@ -167,17 +167,20 @@ public class AdmBookController {
         String title = txtTitle.getText();
         String author = txtAuthor.getText();
         String genre = cmbGenre.getValue();
-        String branch = cmbBranch.getValue();
+        String branchName = cmbBranch.getValue();
         String availability = cmbAvailable.getValue();
+        int branchId = branchService.getId(branchName);
+
+        System.out.println("branchId "+branchId);
 
         if(btnSave.getText().equals("SAVE")){
-            boolean bookSaved = bookService.saveBook(new BookDTO(id,title,author,genre,branch,availability));
+            boolean bookSaved = bookService.saveBook(new BookDTO(id,title,author,genre,branchName,availability,branchId));
 
             if (bookSaved){
                 System.out.println("book Saved");
             }
         } else if (btnSave.getText().equals("UPDATE")) {
-            bookService.updateBook(new BookDTO(id,title,author,genre,branch,availability));
+            bookService.updateBook(new BookDTO(id,title,author,genre,branchName,availability,branchId));
         }
 
         loadAllBooks();

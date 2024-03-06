@@ -12,6 +12,7 @@ public class BookRepositoryImpl implements BookRepository {
     @Override
     public boolean save(Book entity) {
         int id = (Integer) session.save(entity);
+        System.out.println("saveId "+id);
         if (id > 0){
             return true;
         }

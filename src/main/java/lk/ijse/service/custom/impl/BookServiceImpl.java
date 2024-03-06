@@ -3,8 +3,10 @@ package lk.ijse.service.custom.impl;
 import lk.ijse.config.SessionFactoryConfig;
 import lk.ijse.dto.BookDTO;
 import lk.ijse.entity.Book;
+import lk.ijse.entity.Branch;
 import lk.ijse.repository.RepositoryFactory;
 import lk.ijse.repository.custom.BookRepository;
+import lk.ijse.repository.custom.BranchRepository;
 import lk.ijse.service.custom.BookService;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -16,14 +18,17 @@ public class BookServiceImpl implements BookService {
 
     private Session session;
     BookRepository bookRepository = (BookRepository) RepositoryFactory.getRepositoryFactory().getRepository(RepositoryFactory.RepositoryTypes.BOOK);
-
+    BranchRepository branchRepository = (BranchRepository) RepositoryFactory.getRepositoryFactory().getRepository(RepositoryFactory.RepositoryTypes.BRANCH);
     @Override
     public boolean saveBook(BookDTO bookDTO) {
         session = SessionFactoryConfig.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
 
         bookRepository.setSession(session);
-        boolean save = bookRepository.save(bookDTO.toEntity());
+        System.out.println("branchId "+bookDTO.getBranchId());
+        Branch branch = branchRepository.getBranch(bookDTO.getBranchId());
+        System.out.println("branch "+branch);
+        boolean save = bookRepository.save(new Book(bookDTO.getBookID(),bookDTO.getTitle(),bookDTO.getAuthor(), bookDTO.getGenre(), bookDTO.getBranchName(), bookDTO.getAvailability(),branch));
         transaction.commit();
         session.close();
         return save;
@@ -43,8 +48,9 @@ public class BookServiceImpl implements BookService {
                book.getTitle(),
                book.getAuthor(),
                book.getGenre(),
-               book.getBranch(),
-               book.getAvailability()
+               book.getBranchName(),
+               book.getAvailability(),
+               book.getBranch().getBranchId()
             ));
         }
         transaction.commit();
@@ -58,7 +64,8 @@ public class BookServiceImpl implements BookService {
         Transaction transaction = session.beginTransaction();
 
         bookRepository.setSession(session);
-        bookRepository.update(bookDTO.toEntity());
+        Branch branch = branchRepository.getBranch(bookDTO.getBranchId());
+        bookRepository.update(new Book(bookDTO.getBookID(),bookDTO.getTitle(),bookDTO.getAuthor(), bookDTO.getGenre(), bookDTO.getBranchName(), bookDTO.getAvailability(),branch));
         transaction.commit();
         session.close();
     }

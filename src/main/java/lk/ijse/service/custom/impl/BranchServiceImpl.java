@@ -45,9 +45,32 @@ public class BranchServiceImpl implements BranchService {
         Transaction transaction = session.beginTransaction();
 
         branchRepository.setSession(session);
-        boolean save = branchRepository.save(branchDTO.toEntity());
+        boolean save = branchRepository.save(new Branch(branchDTO.getBranchId(),branchDTO.getBranchName()));
         transaction.commit();
         session.close();
         return save;
+    }
+
+    @Override
+    public void closeBranch(int id) {
+        session = SessionFactoryConfig.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+
+        branchRepository.setSession(session);
+        branchRepository.delete(id);
+        transaction.commit();
+        session.close();
+    }
+
+    @Override
+    public int getId(String branchName) {
+        session = SessionFactoryConfig.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+
+        branchRepository.setSession(session);
+        int id = branchRepository.getId(branchName);
+        transaction.commit();
+        session.close();
+        return id;
     }
 }

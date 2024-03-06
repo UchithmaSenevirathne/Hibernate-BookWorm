@@ -10,4 +10,8 @@ public interface BranchService extends SuperService {
 
     boolean addBranch(BranchDTO branchDTO);
 
+    void closeBranch(int id);
+
+    int getId(String branchName);
+
 }

@@ -12,11 +12,4 @@ import lombok.NoArgsConstructor;
 public class BranchDTO {
     private int branchId;
     private String branchName;
-
-    public Branch toEntity() {
-        Branch branchEnt = new Branch();
-        branchEnt.setBranchId(this.branchId);
-        branchEnt.setBranchName(this.branchName);
-        return branchEnt;
-    }
 }
