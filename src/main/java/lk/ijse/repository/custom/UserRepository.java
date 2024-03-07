@@ -9,4 +9,5 @@ public interface UserRepository extends CRUDRepository <User> {
 
     boolean search(String userName, String password);
 
+    void deleteAdmin(String username);
 }
