@@ -4,4 +4,6 @@ import lk.ijse.entity.Book;
 import lk.ijse.repository.CRUDRepository;
 
 public interface BookRepository extends CRUDRepository<Book> {
+    String getBranchId(int bId);
+
 }

@@ -42,4 +42,10 @@ public class BookRepositoryImpl implements BookRepository {
         Book book = session.get(Book.class, id);
         session.delete(book);
     }
+
+    @Override
+    public String getBranchId(int bId) {
+        Book book = session.get(Book.class, bId);
+        return book.getBranchName();
+    }
 }

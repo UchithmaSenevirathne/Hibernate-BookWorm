@@ -6,6 +6,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -25,6 +27,9 @@ public class User {
 
     @Column(name = "role")
     private String role;
+
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "user")
+    private List<BorrowingDetails> borrowingDetails = new ArrayList<>();
 
     public UserDTO toDto() {
         UserDTO userDTO = new UserDTO();

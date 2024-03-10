@@ -25,9 +25,7 @@ public class BookServiceImpl implements BookService {
         Transaction transaction = session.beginTransaction();
 
         bookRepository.setSession(session);
-        System.out.println("branchId "+bookDTO.getBranchId());
         Branch branch = branchRepository.getBranch(bookDTO.getBranchId());
-        System.out.println("branch "+branch);
         boolean save = bookRepository.save(new Book(bookDTO.getBookID(),bookDTO.getTitle(),bookDTO.getAuthor(), bookDTO.getGenre(), bookDTO.getBranchName(), bookDTO.getAvailability(),branch));
         transaction.commit();
         session.close();
@@ -79,5 +77,17 @@ public class BookServiceImpl implements BookService {
         bookRepository.delete(id);
         transaction.commit();
         session.close();
+    }
+
+    @Override
+    public String getBranch(int bId) {
+        session = SessionFactoryConfig.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+
+        bookRepository.setSession(session);
+        String branchName = bookRepository.getBranchId(bId);
+        transaction.commit();
+        session.close();
+        return branchName;
     }
 }

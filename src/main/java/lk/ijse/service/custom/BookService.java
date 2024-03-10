@@ -14,4 +14,5 @@ public interface BookService extends SuperService {
 
     void deleteBook(int id);
 
+    String getBranch(int bId);
 }
