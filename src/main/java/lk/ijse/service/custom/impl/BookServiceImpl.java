@@ -90,4 +90,17 @@ public class BookServiceImpl implements BookService {
         session.close();
         return branchName;
     }
+
+    @Override
+    public BookDTO getBook(int bookId) {
+        session = SessionFactoryConfig.getInstance().getSession();
+//        Transaction transaction = session.beginTransaction();
+
+        bookRepository.setSession(session);
+        Book book = bookRepository.getBook(bookId);
+        BookDTO bookDTO = new BookDTO(book.getBookID(),book.getTitle(),book.getAuthor(),book.getGenre(),book.getBranchName(),book.getAvailability(),book.getBranch().getBranchId());
+//        transaction.commit();
+        session.close();
+        return bookDTO;
+    }
 }

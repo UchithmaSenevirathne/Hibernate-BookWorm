@@ -48,4 +48,12 @@ public class BookRepositoryImpl implements BookRepository {
         Book book = session.get(Book.class, bId);
         return book.getBranchName();
     }
+
+    @Override
+    public Book getBook(int bookId) {
+        Book book = session.get(Book.class, bookId);
+        return book;
+    }
+
+
 }

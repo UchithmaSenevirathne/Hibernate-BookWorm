@@ -6,4 +6,5 @@ import lk.ijse.repository.CRUDRepository;
 public interface BookRepository extends CRUDRepository<Book> {
     String getBranchId(int bId);
 
+    Book getBook(int bookId);
 }

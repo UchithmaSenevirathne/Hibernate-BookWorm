@@ -25,11 +25,13 @@ public class SignInController {
     @FXML
     private TextField txtUserName;
 
+    public String userName;
+
     UserService userService = (UserService) ServiceFactory.getServiceFactory().getService(ServiceFactory.ServiceTypes.USER);
 
     @FXML
     void btnLoginOnAction(ActionEvent event) {
-        String userName = txtUserName.getText();
+        userName = txtUserName.getText();
         String password = txtPassword.getText();
 
         try {
@@ -64,7 +66,17 @@ public class SignInController {
                 stage.show();
             }else{
                 System.out.println("customer");
-                Parent rootNode = FXMLLoader.load(this.getClass().getResource("/view/CustomerNavPane.fxml"));
+//                Parent rootNode = FXMLLoader.load(this.getClass().getResource("/view/CustomerNavPane.fxml"));
+
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/CustomerNavPane.fxml"));
+
+                Parent rootNode = loader.load();
+
+                CustomerNavPane customerNavPane = loader.getController();
+
+                customerNavPane.setUserName(
+                        username
+                );
 
                 Scene scene = new Scene(rootNode);
                 Stage stage = (Stage) this.signInPane.getScene().getWindow();

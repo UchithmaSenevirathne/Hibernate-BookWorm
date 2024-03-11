@@ -10,12 +10,11 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="735.0" prefWidth="984.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.CusDiscoverController">
    <children>
       <AnchorPane prefHeight="735.0" prefWidth="984.0" style="-fx-background-color: white; -fx-background-radius: 20;">
          <children>
-            <ImageView fitHeight="735.0" fitWidth="984.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="735.0" fitWidth="984.0" onMouseClicked="#refreshPage" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../assets/cusDash.png" />
                </image>

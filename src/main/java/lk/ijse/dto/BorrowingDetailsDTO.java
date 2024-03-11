@@ -1,38 +1,23 @@
-package lk.ijse.entity;
+package lk.ijse.dto;
 
 import lk.ijse.embedded.BorrowingDetailPK;
-import org.hibernate.annotations.CreationTimestamp;
 
-import javax.persistence.*;
 import java.sql.Timestamp;
 
-@Entity(name = "borrowing_detail")
-public class BorrowingDetails {
+public class BorrowingDetailsDTO {
 
-    @EmbeddedId
     private BorrowingDetailPK borrowingDetailPK;
 
-    @Column(name = "borrow_date")
     private Timestamp borrowDate;
 
-    @Column(name = "due_date")
     private Timestamp dueDate;
 
-    @Column(name = "return_date")
     private Timestamp returnDate;
 
-    @ManyToOne
-    @JoinColumn(name = "user_name", referencedColumnName = "user_name", insertable = false, updatable = false)
-    private User user;
-
-    @ManyToOne
-    @JoinColumn(name = "book_id", referencedColumnName = "book_id", insertable = false, updatable = false)
-    private Book book;
-
-    public BorrowingDetails() {
+    public BorrowingDetailsDTO() {
     }
 
-    public BorrowingDetails(BorrowingDetailPK borrowingDetailPK, Timestamp borrowDate, Timestamp dueDate, Timestamp returnDate) {
+    public BorrowingDetailsDTO(BorrowingDetailPK borrowingDetailPK, Timestamp borrowDate, Timestamp dueDate, Timestamp returnDate) {
         this.borrowingDetailPK = borrowingDetailPK;
         this.borrowDate = borrowDate;
         this.dueDate = dueDate;
@@ -69,9 +54,5 @@ public class BorrowingDetails {
 
     public void setReturnDate(Timestamp returnDate) {
         this.returnDate = returnDate;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
     }
 }

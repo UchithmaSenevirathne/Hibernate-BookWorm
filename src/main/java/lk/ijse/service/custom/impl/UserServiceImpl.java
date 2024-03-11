@@ -96,4 +96,45 @@ public class UserServiceImpl implements UserService {
         transaction.commit();
         session.close();
     }
+
+    @Override
+    public String getName(String username) {
+        session = SessionFactoryConfig.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+
+        userRepository.setSession(session);
+
+        User user = userRepository.getUser(username);
+
+        String name = null;
+
+        if (user.getUserName().equals(username)){
+            name = user.getName();
+        }
+        transaction.commit();
+        session.close();
+        return name;
+    }
+
+    @Override
+    public String getUserName(String username) {
+        session = SessionFactoryConfig.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+
+        userRepository.setSession(session);
+
+        String id = null;
+
+        for (User user : userRepository.getAll()){
+            if (user.getName().equals(username)){
+                id = user.getUserName();
+            }
+        }
+
+        System.out.println("username : " + id);
+
+        transaction.commit();
+        session.close();
+        return id;
+    }
 }

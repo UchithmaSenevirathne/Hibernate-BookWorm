@@ -28,6 +28,12 @@ public class UserRepositoryImpl implements UserRepository {
     }
 
     @Override
+    public User getUser(String username) {
+        User user = session.get(User.class, username);
+        return user;
+    }
+
+    @Override
     public boolean save(User entity) {
         String userName = (String) session.save(entity);
         if (userName!=null){

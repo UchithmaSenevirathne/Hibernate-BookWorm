@@ -46,7 +46,11 @@ public class CusDiscoverController {
     @FXML
     private TextField txtSearch;
 
+    private String username;
+
     private int index;
+
+    private CustomerNavPane customerNavPane;
 
     private final ObservableList<DiscoverTM> discoverTMS = FXCollections.observableArrayList();
 
@@ -111,6 +115,10 @@ public class CusDiscoverController {
                 bId,title,author,genre,availability,branch
             );
 
+            borrowBook.setUserName(
+                    customerNavPane.lblUserName.getText()
+            );
+
             Scene scene = new Scene(rootNode);
             Stage stage = new Stage();
             stage.setScene(scene);
@@ -121,5 +129,15 @@ public class CusDiscoverController {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    @FXML
+    void refreshPage(MouseEvent event) {
+        loadAllDiscovers();
+    }
+
+
+    public void setUserName(CustomerNavPane customerNavPane) {
+        this.customerNavPane = customerNavPane;
     }
 }
