@@ -15,7 +15,7 @@
    <children>
       <AnchorPane fx:id="admDashPane" layoutX="-2.0" prefHeight="735.0" prefWidth="984.0" style="-fx-background-color: white; -fx-background-radius: 20;">
          <children>
-            <ImageView fitHeight="735.0" fitWidth="984.0" layoutX="1.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="735.0" fitWidth="984.0" layoutX="1.0" onMouseClicked="#refreshPage" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../assets/bookAdm.png" />
                </image>

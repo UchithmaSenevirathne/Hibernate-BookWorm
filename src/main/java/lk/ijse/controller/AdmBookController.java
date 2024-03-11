@@ -264,4 +264,12 @@ public class AdmBookController {
         stage.show();
     }
 
+    @FXML
+    void refreshPage(MouseEvent event) {
+        loadAllBooks();
+        setComboData();
+//        initUi();
+    }
+
+
 }
