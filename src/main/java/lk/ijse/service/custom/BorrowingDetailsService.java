@@ -9,4 +9,6 @@ public interface BorrowingDetailsService extends SuperService {
     boolean checkReturns(String userName);
 
     boolean checkNumberOfBooks(String userName);
+
+    boolean updateReturn(int id);
 }

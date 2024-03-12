@@ -45,4 +45,21 @@ public class BorrowingDetailsRepositoryImpl implements BorrowingDetailsRepositor
     public void delete(int id) {
 
     }
+
+    @Override
+    public BorrowingDetails getBorrowing(int id) {
+        String sql = "FROM borrowing_detail";
+        Query query = session.createQuery(sql);
+        List<BorrowingDetails> list = query.list();
+
+        BorrowingDetails borrowingDetails = null;
+
+        for (BorrowingDetails bd : list){
+            if (bd.getBorrowingDetailPK().getBookID() == id){
+                borrowingDetails = bd;
+            }
+        }
+
+        return borrowingDetails;
+    }
 }

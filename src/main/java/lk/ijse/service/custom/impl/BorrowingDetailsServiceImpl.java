@@ -121,4 +121,34 @@ public class BorrowingDetailsServiceImpl implements BorrowingDetailsService {
         session.close();
         return true;
     }
+
+    @Override
+    public boolean updateReturn(int id) {
+        System.out.println(id);
+        session = SessionFactoryConfig.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+
+        try {
+            borrowingDetailsRepository.setSession(session);
+
+            BorrowingDetails borrowingDetails = borrowingDetailsRepository.getBorrowing(id);
+            Timestamp returnDate = new Timestamp(System.currentTimeMillis());
+            borrowingDetails.setReturnDate(returnDate);
+            borrowingDetailsRepository.update(borrowingDetails);
+
+            bookRepository.setSession(session);
+            Book book = bookRepository.getBook(id);
+            book.setAvailability("YES");
+            bookRepository.update(book);
+
+            transaction.commit();
+            session.close();
+            return true;
+        }catch (Exception e){
+            transaction.rollback();
+            session.close();
+            e.printStackTrace();
+            return false;
+        }
+    }
 }
