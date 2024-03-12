@@ -1,9 +1,11 @@
 package lk.ijse.repository.custom.impl;
 
 import lk.ijse.embedded.BorrowingDetailPK;
+import lk.ijse.entity.Book;
 import lk.ijse.entity.BorrowingDetails;
 import lk.ijse.repository.custom.BorrowingDetailsRepository;
 import org.hibernate.Session;
+import org.hibernate.query.Query;
 
 import java.util.List;
 
@@ -28,7 +30,10 @@ public class BorrowingDetailsRepositoryImpl implements BorrowingDetailsRepositor
 
     @Override
     public List<BorrowingDetails> getAll() {
-        return null;
+        String sql = "FROM borrowing_detail";
+        Query query = session.createQuery(sql);
+        List<BorrowingDetails> list = query.list();
+        return list;
     }
 
     @Override

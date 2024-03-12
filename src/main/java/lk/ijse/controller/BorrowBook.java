@@ -2,6 +2,7 @@ package lk.ijse.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -58,37 +59,57 @@ public class BorrowBook {
         String userName = userService.getUserName(username);
         int bookId = Integer.parseInt(txtBId.getText());
 
+        //check if the books are returned
+        if (isreturned(userName)) {
 
-        Timestamp borrowingDateTime = new Timestamp(System.currentTimeMillis());
+            //check book counts that not returned
+            if (lessTwo(userName)) {
+                Timestamp borrowingDateTime = new Timestamp(System.currentTimeMillis());
 
-        // Convert Timestamp to LocalDateTime
-        LocalDateTime localDateTime = borrowingDateTime.toLocalDateTime();
+                // Convert Timestamp to LocalDateTime
+                LocalDateTime localDateTime = borrowingDateTime.toLocalDateTime();
 
-        // Add a week
-        int weeksToAdd = 1;
-        LocalDateTime updatedTimestamp = localDateTime.plusWeeks(weeksToAdd);
+                // Add a week
+                int weeksToAdd = 1;
+                LocalDateTime updatedTimestamp = localDateTime.plusWeeks(weeksToAdd);
 
-        // Convert back to Timestamp
-        Timestamp dueDateTime = Timestamp.valueOf(updatedTimestamp);
+                // Convert back to Timestamp
+                Timestamp dueDateTime = Timestamp.valueOf(updatedTimestamp);
 
-        System.out.println("Original Timestamp: " + borrowingDateTime);
-        System.out.println("Updated Timestamp (after adding a week): " + dueDateTime);
+                System.out.println("Original Timestamp: " + borrowingDateTime);
+                System.out.println("Updated Timestamp (after adding a week): " + dueDateTime);
 
-        BorrowingDetailPK borrowingDetailPK = new BorrowingDetailPK(userName, bookId);
+                BorrowingDetailPK borrowingDetailPK = new BorrowingDetailPK(userName, bookId);
 
-        BorrowingDetailsDTO borrowingDetailsDTO = new BorrowingDetailsDTO(borrowingDetailPK, borrowingDateTime, dueDateTime, null);
+                BorrowingDetailsDTO borrowingDetailsDTO = new BorrowingDetailsDTO(borrowingDetailPK, borrowingDateTime, dueDateTime, null);
 
-        boolean saved = borrowingDetailsService.save(borrowingDetailsDTO);
+                boolean saved = borrowingDetailsService.save(borrowingDetailsDTO);
 
-        if (saved){
-            System.out.println("saved borrow");
-            BookDTO bookDTO = bookService.getBook(bookId);
+                if (saved) {
+                    System.out.println("saved borrow");
+                    BookDTO bookDTO = bookService.getBook(bookId);
 
-            System.out.println(bookDTO);
+                    System.out.println(bookDTO);
 
-            bookService.updateBook(new BookDTO(bookDTO.getBookID(),bookDTO.getTitle(),bookDTO.getAuthor(),bookDTO.getGenre(),bookDTO.getBranchName(),"NO",bookDTO.getBranchId()));
+                    bookService.updateBook(new BookDTO(bookDTO.getBookID(), bookDTO.getTitle(), bookDTO.getAuthor(), bookDTO.getGenre(), bookDTO.getBranchName(), "NO", bookDTO.getBranchId()));
+                }
+            }else {
+                new Alert(Alert.AlertType.INFORMATION, "You cannot borrow more than two books").show();
+            }
+        }else {
+            new Alert(Alert.AlertType.INFORMATION, "You should return book first").show();
         }
 
+    }
+
+    private boolean lessTwo(String userName) {
+        boolean lessTwo = borrowingDetailsService.checkNumberOfBooks(userName);
+        return lessTwo;
+    }
+
+    private boolean isreturned(String userName) {
+        boolean returned = borrowingDetailsService.checkReturns(userName);
+        return returned;
     }
 
     @FXML

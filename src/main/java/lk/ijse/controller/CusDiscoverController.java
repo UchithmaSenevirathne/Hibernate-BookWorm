@@ -2,6 +2,8 @@ package lk.ijse.controller;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -86,7 +88,38 @@ public class CusDiscoverController {
 
     @FXML
     void btnSearchOnAction(ActionEvent event) {
+        FilteredList<DiscoverTM> filteredData = new FilteredList<>(discoverTMS, b -> true);
 
+        txtSearch.textProperty().addListener((observable, oldValue, newValue) -> {
+            filteredData.setPredicate(DiscoverTM -> {
+
+                if(newValue.isEmpty() || newValue.isBlank() || newValue == null){
+                    return true;
+                }
+                String searchKeyword = newValue.toLowerCase();
+
+                String id = String.valueOf(DiscoverTM.getBookID());
+
+                if(id.toLowerCase().indexOf(searchKeyword) > -1){
+                    return true;
+                }else if(DiscoverTM.getTitle().toLowerCase().indexOf(searchKeyword) > -1){
+                    return true;
+                }else if(DiscoverTM.getAuthor().toLowerCase().indexOf(searchKeyword) > -1) {
+                    return true;
+                }else if(DiscoverTM.getGenre().toLowerCase().indexOf(searchKeyword) > -1) {
+                    return true;
+                }else if(DiscoverTM.getAvailability().toLowerCase().indexOf(searchKeyword) > -1){
+                    return true;
+                }else
+                    return false;
+            });
+        });
+
+        SortedList<DiscoverTM> sortedData = new SortedList<>(filteredData);
+
+        sortedData.comparatorProperty().bind(bookTable.comparatorProperty());
+
+        bookTable.setItems(sortedData);
     }
 
     @FXML

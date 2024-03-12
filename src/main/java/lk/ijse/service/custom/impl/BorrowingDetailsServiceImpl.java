@@ -20,6 +20,10 @@ import lk.ijse.service.custom.UserService;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
+import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.List;
+
 public class BorrowingDetailsServiceImpl implements BorrowingDetailsService {
 
     BorrowingDetailsRepository borrowingDetailsRepository = (BorrowingDetailsRepository) RepositoryFactory.getRepositoryFactory().getRepository(RepositoryFactory.RepositoryTypes.BORROWINGDETAILS);
@@ -61,5 +65,54 @@ public class BorrowingDetailsServiceImpl implements BorrowingDetailsService {
         transaction.commit();
         session.close();
         return save;
+    }
+
+    @Override
+    public boolean checkReturns(String userName) {
+        session = SessionFactoryConfig.getInstance().getSession();
+        borrowingDetailsRepository.setSession(session);
+        List<BorrowingDetails> borrowingDetails = borrowingDetailsRepository.getAll();
+
+        for (BorrowingDetails bDs : borrowingDetails){
+            if (bDs.getBorrowingDetailPK().getUserName().equals(userName)){
+
+                Timestamp currentDate = new Timestamp(System.currentTimeMillis());
+
+                Timestamp today = Timestamp.valueOf(currentDate.toLocalDateTime());
+                Timestamp due = Timestamp.valueOf(bDs.getDueDate().toLocalDateTime());
+
+                if (due.before(today) && bDs.getReturnDate() == null){
+                    session.close();
+                    return false;
+                }
+            }
+        }
+        session.close();
+        return true;
+    }
+
+    @Override
+    public boolean checkNumberOfBooks(String userName) {
+        session = SessionFactoryConfig.getInstance().getSession();
+        borrowingDetailsRepository.setSession(session);
+        List<BorrowingDetails> borrowingDetails = borrowingDetailsRepository.getAll();
+
+        int count = 0;
+
+        for (BorrowingDetails bDs : borrowingDetails){
+            if (bDs.getBorrowingDetailPK().getUserName().equals(userName)){
+
+                if (bDs.getReturnDate() == null){
+                    count++;
+                }
+            }
+        }
+
+        if (count == 2){
+            session.close();
+            return false;
+        }
+        session.close();
+        return true;
     }
 }
