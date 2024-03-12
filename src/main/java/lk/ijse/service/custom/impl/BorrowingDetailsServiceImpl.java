@@ -43,28 +43,34 @@ public class BorrowingDetailsServiceImpl implements BorrowingDetailsService {
 
         borrowingDetailsRepository.setSession(session);
 
-//        User user = userRepository.getUser(borrowingDetailsDTO.getUserName());
-//
-//        if (user == null){
-//            throw new IllegalArgumentException("User with userName " + borrowingDetailsDTO.getUserName() + " does not exist.");
-//        }
+        try {
+            System.out.println(borrowingDetailsDTO.getDueDate()+ "and" +borrowingDetailsDTO.getReturnDate());
 
-//        BorrowingDetailPK pk = new BorrowingDetailPK(borrowingDetailsDTO.getUserName(), borrowingDetailsDTO.getBookID());
-//
-//        BorrowingDetails borrowingDetails = new BorrowingDetails(pk, borrowingDetailsDTO.getBorrowDate(), borrowingDetailsDTO.getDueDate(), borrowingDetailsDTO.getReturnDate());
-//
-//        // Set the User entity in BorrowingDetails
-//        borrowingDetails.setUser(user);
-//
-//        boolean save = borrowingDetailsRepository.save(borrowingDetails);
+            boolean save = borrowingDetailsRepository.save(new BorrowingDetails(borrowingDetailsDTO.getBorrowingDetailPK(), borrowingDetailsDTO.getBorrowDate(), borrowingDetailsDTO.getDueDate(), borrowingDetailsDTO.getReturnDate()));
 
-        System.out.println(borrowingDetailsDTO.getDueDate()+ "and" +borrowingDetailsDTO.getReturnDate());
+            if (save){
+                System.out.println("book Id  : "+borrowingDetailsDTO.getBorrowingDetailPK().getBookID());
 
-        boolean save = borrowingDetailsRepository.save(new BorrowingDetails(borrowingDetailsDTO.getBorrowingDetailPK(), borrowingDetailsDTO.getBorrowDate(), borrowingDetailsDTO.getDueDate(), borrowingDetailsDTO.getReturnDate()));
+                bookRepository.setSession(session);
+                Book book = bookRepository.getBook(borrowingDetailsDTO.getBorrowingDetailPK().getBookID());
+                book.setAvailability("NO");
+                bookRepository.update(book);
 
-        transaction.commit();
-        session.close();
-        return save;
+                transaction.commit();
+                session.close();
+                return true;
+            }
+            transaction.rollback();
+            session.close();
+            return false;
+
+        }catch (Exception e){
+            transaction.rollback();
+            session.close();
+            e.printStackTrace();
+            return false;
+        }
+
     }
 
     @Override

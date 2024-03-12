@@ -87,11 +87,11 @@ public class BorrowBook {
 
                 if (saved) {
                     System.out.println("saved borrow");
-                    BookDTO bookDTO = bookService.getBook(bookId);
-
-                    System.out.println(bookDTO);
-
-                    bookService.updateBook(new BookDTO(bookDTO.getBookID(), bookDTO.getTitle(), bookDTO.getAuthor(), bookDTO.getGenre(), bookDTO.getBranchName(), "NO", bookDTO.getBranchId()));
+//                    BookDTO bookDTO = bookService.getBook(bookId);
+//
+//                    System.out.println(bookDTO);
+//
+//                    bookService.updateBook(new BookDTO(bookDTO.getBookID(), bookDTO.getTitle(), bookDTO.getAuthor(), bookDTO.getGenre(), bookDTO.getBranchName(), "NO", bookDTO.getBranchId()));
                 }
             }else {
                 new Alert(Alert.AlertType.INFORMATION, "You cannot borrow more than two books").show();
