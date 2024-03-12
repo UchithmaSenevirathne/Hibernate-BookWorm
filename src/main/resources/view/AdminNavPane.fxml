@@ -104,21 +104,7 @@
             <Font name="SansSerif Regular" size="12.0" />
          </font>
       </Label>
-      <Pane layoutX="83.0" layoutY="489.0" prefHeight="33.0" prefWidth="35.0" style="-fx-background-color: #F0F0F0; -fx-background-radius: 10;">
-         <children>
-            <ImageView fitHeight="15.0" fitWidth="15.0" layoutX="10.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../assets/icons/profile.png" />
-               </image>
-            </ImageView>
-         </children>
-      </Pane>
-      <Label graphicTextGap="5.0" layoutX="132.0" layoutY="498.0" text="Profile" textFill="#838383">
-         <font>
-            <Font name="SansSerif Regular" size="12.0" />
-         </font>
-      </Label>
-      <Pane layoutX="83.0" layoutY="548.0" prefHeight="33.0" prefWidth="35.0" style="-fx-background-color: #F0F0F0; -fx-background-radius: 10;">
+      <Pane layoutX="83.0" layoutY="488.0" prefHeight="33.0" prefWidth="35.0" style="-fx-background-color: #F0F0F0; -fx-background-radius: 10;">
          <children>
             <ImageView fitHeight="15.0" fitWidth="15.0" layoutX="9.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -127,7 +113,7 @@
             </ImageView>
          </children>
       </Pane>
-      <Label graphicTextGap="5.0" layoutX="133.0" layoutY="557.0" onMouseClicked="#logoutOnAction" text="Log out" textFill="#838383">
+      <Label graphicTextGap="5.0" layoutX="133.0" layoutY="497.0" onMouseClicked="#logoutOnAction" text="Log out" textFill="#838383">
          <font>
             <Font name="SansSerif Regular" size="12.0" />
          </font>

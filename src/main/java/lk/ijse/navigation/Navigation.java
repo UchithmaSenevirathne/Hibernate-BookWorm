@@ -38,6 +38,10 @@ public class Navigation {
                 initUI("cusDiscover.fxml");
                 window.setTitle("DISCOVER");
                 break;
+            case BORROWING:
+                initUI("AdmBorrowingManage.fxml");
+                window.setTitle("BORROWINGS");
+                break;
             default:
                 new Alert(Alert.AlertType.ERROR, "Not suitable Window found!").show();
         }

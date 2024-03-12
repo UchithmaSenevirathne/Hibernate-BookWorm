@@ -51,7 +51,11 @@ public class AdminNavPane {
 
     @FXML
     void borrowingOnAction(MouseEvent event) {
-
+        try {
+            Navigation.navigate(Routes.BORROWING, admPane);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @FXML
