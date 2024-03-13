@@ -118,5 +118,16 @@
             <Font name="SansSerif Regular" size="12.0" />
          </font>
       </Label>
+      <ImageView fitHeight="43.0" fitWidth="41.0" layoutX="81.0" layoutY="718.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/gif/overdue.gif" />
+         </image>
+      </ImageView>
+      <Pane fx:id="overDueDot" layoutX="174.0" layoutY="730.0" prefHeight="9.0" prefWidth="8.0" style="-fx-background-color: red; -fx-background-radius: 5;" />
+      <Label graphicTextGap="5.0" layoutX="130.0" layoutY="731.0" onMouseClicked="#OverDueOnAction" text="OverDue" textFill="#838383">
+         <font>
+            <Font name="SansSerif Regular" size="12.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

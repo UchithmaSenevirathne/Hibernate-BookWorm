@@ -27,6 +27,21 @@ public class QueryRepositoryImpl implements QueryRepository {
                 "JOIN borrowing_detail br ON u.user_name = br.user_name \n" +
                 "JOIN book b ON b.book_id = br.book_id";
 
+
+
+        Query query = session.createNativeQuery(hql);
+        List<Object[]> results = query.list();
+
+        return results;
+    }
+
+    @Override
+    public List<Object[]> getAllOverDues() {
+        String hql = "SELECT b.book_id, b.title, u.name, br.borrow_date, br.due_date, br.return_date\n" +
+                "FROM user u \n" +
+                "JOIN borrowing_detail br ON u.user_name = br.user_name \n" +
+                "JOIN book b ON b.book_id = br.book_id";
+
         Query query = session.createNativeQuery(hql);
         List<Object[]> results = query.list();
 

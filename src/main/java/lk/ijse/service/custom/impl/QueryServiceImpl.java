@@ -2,6 +2,7 @@ package lk.ijse.service.custom.impl;
 
 import lk.ijse.config.SessionFactoryConfig;
 import lk.ijse.dto.BorrowingDTO;
+import lk.ijse.dto.OverDueDTO;
 import lk.ijse.repository.RepositoryFactory;
 import lk.ijse.repository.custom.QueryRepository;
 import lk.ijse.service.custom.QueryService;
@@ -40,5 +41,35 @@ public class QueryServiceImpl implements QueryService {
         }
 
         return borrowingDTOS;
+    }
+
+    @Override
+    public List<OverDueDTO> getAllOverDues() {
+        session = SessionFactoryConfig.getInstance().getSession();
+
+        queryRepository.setSession(session);
+
+        List<Object[]> objects = queryRepository.getAllOverDues();
+
+        List<OverDueDTO> overDueDTOS = new ArrayList<>();
+
+        Timestamp currentDate = new Timestamp(System.currentTimeMillis());
+
+        for (Object[] o : objects){
+            Timestamp returnDate = (Timestamp) o[5];
+            Timestamp dueDate = (Timestamp) o[4];
+
+            if (returnDate == null && dueDate.before(currentDate)) {
+                overDueDTOS.add(new OverDueDTO(
+                        (Integer) o[0],
+                        (String) o[1],
+                        (String) o[2],
+                        (Timestamp) o[3],
+                        (Timestamp) o[4]
+                ));
+            }
+        }
+
+        return overDueDTOS;
     }
 }

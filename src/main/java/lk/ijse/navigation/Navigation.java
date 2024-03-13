@@ -42,6 +42,10 @@ public class Navigation {
                 initUI("AdmBorrowingManage.fxml");
                 window.setTitle("BORROWINGS");
                 break;
+            case OVERDUE:
+                initUI("AdmOverDue.fxml");
+                window.setTitle("OVERDUES");
+                break;
             default:
                 new Alert(Alert.AlertType.ERROR, "Not suitable Window found!").show();
         }

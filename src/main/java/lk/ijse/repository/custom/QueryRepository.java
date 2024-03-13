@@ -9,4 +9,6 @@ public interface QueryRepository extends SuperRepository {
     void setSession(Session session);
 
     List<Object[]> getAllBorrowings();
+
+    List<Object[]> getAllOverDues();
 }
