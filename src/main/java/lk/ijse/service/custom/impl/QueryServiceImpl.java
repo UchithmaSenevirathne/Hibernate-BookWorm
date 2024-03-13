@@ -2,7 +2,9 @@ package lk.ijse.service.custom.impl;
 
 import lk.ijse.config.SessionFactoryConfig;
 import lk.ijse.dto.BorrowingDTO;
+import lk.ijse.dto.LibraryDTO;
 import lk.ijse.dto.OverDueDTO;
+import lk.ijse.entity.BorrowingDetails;
 import lk.ijse.repository.RepositoryFactory;
 import lk.ijse.repository.custom.QueryRepository;
 import lk.ijse.service.custom.QueryService;
@@ -39,7 +41,7 @@ public class QueryServiceImpl implements QueryService {
                     (Timestamp) o[6]
             ));
         }
-
+        session.close();
         return borrowingDTOS;
     }
 
@@ -69,7 +71,46 @@ public class QueryServiceImpl implements QueryService {
                 ));
             }
         }
-
+        session.close();
         return overDueDTOS;
+    }
+
+    @Override
+    public boolean checkOverDues() {
+        session = SessionFactoryConfig.getInstance().getSession();
+
+        queryRepository.setSession(session);
+        List<BorrowingDetails> borrowingDetails = queryRepository.filterOverDues();
+
+        if (borrowingDetails.isEmpty()){
+            session.close();
+            return false;
+
+        }else {
+            session.close();
+            return true;
+        }
+    }
+
+    @Override
+    public List<LibraryDTO> getLibrary(String username) {
+        session = SessionFactoryConfig.getInstance().getSession();
+
+        queryRepository.setSession(session);
+
+        List<Object[]> objects = queryRepository.getLibrary(username);
+
+        List<LibraryDTO> libraryDTOS = new ArrayList<>();
+
+        for (Object[] o : objects){
+            libraryDTOS.add(new LibraryDTO(
+                    (String) o[0],
+                    (String) o[1],
+                    (Timestamp) o[2],
+                    (Timestamp) o[3]
+            ));
+        }
+        session.close();
+        return libraryDTOS;
     }
 }

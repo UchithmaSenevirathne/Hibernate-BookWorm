@@ -6,6 +6,8 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import lk.ijse.navigation.Navigation;
+import lk.ijse.service.ServiceFactory;
+import lk.ijse.service.custom.QueryService;
 
 import java.io.IOException;
 
@@ -19,13 +21,19 @@ public class AdminNavPane {
     @FXML
     private Pane overDueDot;
 
+    QueryService queryService = (QueryService) ServiceFactory.getServiceFactory().getService(ServiceFactory.ServiceTypes.QUERY);
+
     public void initialize(){
         loadDashboard();
         setVisibleOverDue();
     }
 
-    private void setVisibleOverDue() {
+    public void setVisibleOverDue() {
+        boolean isOverDue = queryService.checkOverDues();
 
+        if (!isOverDue){
+            overDueDot.setVisible(false);
+        }
     }
 
     private void loadDashboard() {
@@ -92,5 +100,10 @@ public class AdminNavPane {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    @FXML
+    void refreshOverDue(MouseEvent event) {
+        setVisibleOverDue();
     }
 }

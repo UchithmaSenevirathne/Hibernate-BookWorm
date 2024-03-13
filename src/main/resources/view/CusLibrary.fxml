@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="735.0" prefWidth="984.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.CusLibraryController">
+   <children>
+      <AnchorPane prefHeight="735.0" prefWidth="984.0" style="-fx-background-color: white; -fx-background-radius: 20;">
+         <children>
+            <ImageView fitHeight="735.0" fitWidth="984.0" onMouseClicked="#refreshPage" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/CusLib.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="67.0" layoutY="38.0" text="Library">
+               <font>
+                  <Font name="SansSerif Bold" size="26.0" />
+               </font>
+            </Label>
+            <TableView fx:id="bookTable" layoutX="21.0" layoutY="328.0" onMouseClicked="#tblOnAction" prefHeight="386.0" prefWidth="945.0" style="-fx-background-color: transparent;">
+               <columns>
+                  <TableColumn fx:id="colTitle" prefWidth="306.0" text="Book Name" />
+                  <TableColumn fx:id="colBranch" prefWidth="148.0" text="Branch" />
+                  <TableColumn fx:id="colBorrow" prefWidth="246.0" text="Borrowed Date" />
+                  <TableColumn fx:id="colDue" prefWidth="244.0" text="Due Date" />
+               </columns>
+            </TableView>
+            <TextField fx:id="txtSearch" layoutX="67.0" layoutY="127.0" onAction="#btnSearchOnAction" prefHeight="40.0" prefWidth="409.0" promptText="find your borrowings" style="-fx-background-color: white;" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

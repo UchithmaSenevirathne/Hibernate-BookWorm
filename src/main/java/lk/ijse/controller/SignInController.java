@@ -25,23 +25,23 @@ public class SignInController {
     @FXML
     private TextField txtUserName;
 
-    public String userName;
+    public static String LoginPageUserName;
 
     UserService userService = (UserService) ServiceFactory.getServiceFactory().getService(ServiceFactory.ServiceTypes.USER);
 
     @FXML
     void btnLoginOnAction(ActionEvent event) {
-        userName = txtUserName.getText();
+        LoginPageUserName = txtUserName.getText();
         String password = txtPassword.getText();
 
         try {
 
-            boolean isIn = userService.searchUser(userName, password);
+            boolean isIn = userService.searchUser(LoginPageUserName, password);
             if (!isIn) {
                 new Alert(Alert.AlertType.WARNING, "Invalid UserName or Password").show();
             } else {
                 System.out.println("user in");
-                isAdmin(userName);
+                isAdmin(LoginPageUserName);
             }
 
         } catch (Exception e) {

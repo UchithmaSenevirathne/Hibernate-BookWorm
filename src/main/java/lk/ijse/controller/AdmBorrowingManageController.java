@@ -63,6 +63,8 @@ public class AdmBorrowingManageController {
 
     BorrowingDetailsService borrowingDetailsService = (BorrowingDetailsService) ServiceFactory.getServiceFactory().getService(ServiceFactory.ServiceTypes.BORROWINGDETAILS);
 
+    AdminNavPane adminNavPane;
+
     public void initialize(){
         setCellValueFactory();
         loadAllBorrowings();

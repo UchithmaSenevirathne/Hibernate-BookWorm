@@ -46,6 +46,10 @@ public class Navigation {
                 initUI("AdmOverDue.fxml");
                 window.setTitle("OVERDUES");
                 break;
+            case LIBRARRY:
+                initUI("CusLibrary.fxml");
+                window.setTitle("LIBRARY");
+                break;
             default:
                 new Alert(Alert.AlertType.ERROR, "Not suitable Window found!").show();
         }

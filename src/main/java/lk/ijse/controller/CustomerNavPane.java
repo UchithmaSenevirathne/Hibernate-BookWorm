@@ -21,12 +21,15 @@ public class CustomerNavPane {
 
 //    private String username;
 
+    private String user_name;
+
     @FXML
     public Label lblUserName;
 
     UserService userService = (UserService) ServiceFactory.getServiceFactory().getService(ServiceFactory.ServiceTypes.USER);
 
     public void initialize(){
+//        user_name = lblUserName.getText();
         loadDiscover();
     }
 
@@ -38,6 +41,9 @@ public class CustomerNavPane {
 
             CusDiscoverController cusDiscoverController = loader.getController();
 
+//            name = lblUserName.getText();
+
+//            System.out.println(user_name);
 
             cusDiscoverController.setUserName(
                     this
@@ -61,7 +67,7 @@ public class CustomerNavPane {
     @FXML
     void libraryOnAction(MouseEvent event) {
         try {
-            Navigation.navigate(Routes.LIBRARY, cusPane);
+            Navigation.navigate(Routes.LIBRARRY, cusPane);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
