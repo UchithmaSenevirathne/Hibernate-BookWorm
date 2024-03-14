@@ -13,4 +13,5 @@ public interface UserRepository extends CRUDRepository <User> {
 
     User getUser(String username);
 
+    String getPwd(String name, String oldUName);
 }

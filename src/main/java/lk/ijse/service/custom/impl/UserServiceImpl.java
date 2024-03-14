@@ -137,4 +137,47 @@ public class UserServiceImpl implements UserService {
         session.close();
         return id;
     }
+
+    @Override
+    public boolean checkOldPwd(String name, String oldUName, String oldPwd) {
+        session = SessionFactoryConfig.getInstance().getSession();
+        userRepository.setSession(session);
+//        Transaction transaction = session.beginTransaction();
+        String pwd = userRepository.getPwd(name, oldUName);
+
+        if (pwd.equals(oldPwd)){
+            session.close();
+            return true;
+        }else {
+            session.close();
+            return false;
+        }
+    }
+
+    @Override
+    public boolean updateProfile(String olsUserName, String newUserName, String rePwd) {
+        session = SessionFactoryConfig.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+
+        userRepository.setSession(session);
+
+        User user = userRepository.getUser(olsUserName);
+
+        if (user != null) {
+            System.out.println("=======================================================");
+            user.setUserName(newUserName);
+            user.setPassword(rePwd);
+
+            userRepository.update(user);
+
+            transaction.commit();
+            session.close();
+            return true;
+
+        }else {
+            transaction.rollback();
+            session.close();
+            return false;
+        }
+    }
 }

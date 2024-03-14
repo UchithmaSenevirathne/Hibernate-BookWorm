@@ -17,4 +17,8 @@ public interface UserService extends SuperService {
     String getName(String username);
 
     String getUserName(String username);
+
+    boolean checkOldPwd(String name, String oldUName, String oldPwd);
+
+    boolean updateProfile(String olsUserName, String newUserName, String rePwd);
 }

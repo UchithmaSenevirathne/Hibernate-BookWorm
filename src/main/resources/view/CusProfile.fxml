@@ -8,7 +8,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="735.0" prefWidth="984.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.CusProfileController">
    <children>
       <AnchorPane prefHeight="735.0" prefWidth="984.0" style="-fx-background-color: white; -fx-background-radius: 20;">
@@ -33,36 +32,41 @@
                   <Font name="SansSerif Bold" size="12.0" />
                </font>
             </Label>
-            <Label layoutX="376.0" layoutY="300.0" text="Change Your Login Details">
+            <Label layoutX="376.0" layoutY="289.0" text="Change Your Login Details">
                <font>
                   <Font name="SansSerif Bold" size="18.0" />
                </font>
             </Label>
-            <TextField fx:id="txtUserName" layoutX="274.0" layoutY="407.0" prefHeight="38.0" prefWidth="435.0" promptText="Enter Your New UserName" style="-fx-background-color: white;">
+            <TextField fx:id="txtUserName" layoutX="274.0" layoutY="422.0" prefHeight="38.0" prefWidth="435.0" promptText="Enter Your New UserName" style="-fx-background-color: white;">
                <font>
                   <Font name="SansSerif Regular" size="13.0" />
                </font>
             </TextField>
-            <TextField fx:id="txtOldPassword" layoutX="274.0" layoutY="486.0" prefHeight="38.0" prefWidth="205.0" promptText="Enter Your Old Password" style="-fx-background-color: white;">
+            <TextField fx:id="txtOldPassword" layoutX="274.0" layoutY="497.0" prefHeight="38.0" prefWidth="205.0" promptText="Enter Your Old Password" style="-fx-background-color: white;">
                <font>
                   <Font name="SansSerif Regular" size="13.0" />
                </font>
             </TextField>
-            <TextField fx:id="txtNewPwd" layoutX="505.0" layoutY="486.0" prefHeight="38.0" prefWidth="205.0" promptText="Enter Your New Password" style="-fx-background-color: white;">
+            <TextField fx:id="txtNewPwd" layoutX="505.0" layoutY="497.0" prefHeight="38.0" prefWidth="205.0" promptText="Enter Your New Password" style="-fx-background-color: white;">
                <font>
                   <Font name="SansSerif Regular" size="13.0" />
                </font>
             </TextField>
-            <TextField fx:id="txtRePassword" layoutX="274.0" layoutY="567.0" prefHeight="38.0" prefWidth="253.0" promptText="ReEnter to Confirm Your Password" style="-fx-background-color: white;">
+            <TextField fx:id="txtRePassword" layoutX="274.0" layoutY="575.0" prefHeight="38.0" prefWidth="253.0" promptText="ReEnter to Confirm Your Password" style="-fx-background-color: white;">
                <font>
                   <Font name="SansSerif Regular" size="13.0" />
                </font>
             </TextField>
-            <Button layoutX="556.0" layoutY="567.0" mnemonicParsing="false" onAction="#confirmButtonOnAction" prefHeight="38.0" prefWidth="153.0" style="-fx-background-color: #1C3F3A;" text="CONFIRM" textFill="WHITE">
+            <Button layoutX="556.0" layoutY="575.0" mnemonicParsing="false" onAction="#confirmButtonOnAction" prefHeight="38.0" prefWidth="153.0" style="-fx-background-color: #1C3F3A;" text="CONFIRM" textFill="WHITE">
                <font>
                   <Font name="SansSerif Bold" size="14.0" />
                </font>
             </Button>
+            <TextField fx:id="txtOldUserName" layoutX="275.0" layoutY="349.0" prefHeight="38.0" prefWidth="435.0" promptText="Enter Your Old UserName" style="-fx-background-color: white;">
+               <font>
+                  <Font name="SansSerif Regular" size="13.0" />
+               </font>
+            </TextField>
          </children>
       </AnchorPane>
    </children>

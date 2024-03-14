@@ -56,7 +56,7 @@
             </ImageView>
          </children>
       </Pane>
-      <Label graphicTextGap="5.0" layoutX="142.0" layoutY="322.0" text="Profile" textFill="#838383">
+      <Label graphicTextGap="5.0" layoutX="142.0" layoutY="322.0" onMouseClicked="#profileOnAction" text="Profile" textFill="#838383">
          <font>
             <Font name="SansSerif Regular" size="12.0" />
          </font>

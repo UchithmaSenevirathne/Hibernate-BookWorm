@@ -1,6 +1,7 @@
 package lk.ijse.repository.custom.impl;
 
 import lk.ijse.entity.Book;
+import lk.ijse.entity.BorrowingDetails;
 import lk.ijse.entity.User;
 import lk.ijse.repository.custom.UserRepository;
 import org.hibernate.Session;
@@ -31,6 +32,14 @@ public class UserRepositoryImpl implements UserRepository {
     public User getUser(String username) {
         User user = session.get(User.class, username);
         return user;
+    }
+
+    @Override
+    public String getPwd(String name, String oldUName) {
+        User user = session.get(User.class, oldUName);
+        String pwd = user.getPassword();
+
+        return pwd;
     }
 
     @Override

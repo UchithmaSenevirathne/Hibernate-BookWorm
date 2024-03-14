@@ -82,6 +82,15 @@ public class CustomerNavPane {
         }
     }
 
+    @FXML
+    void profileOnAction(MouseEvent event) {
+        try {
+            Navigation.navigate(Routes.PROFILE, cusPane);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     public void setUserName(String username) {
         String name = userService.getName(username);
         lblUserName.setText(name);

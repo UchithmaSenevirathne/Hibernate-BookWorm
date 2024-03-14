@@ -50,6 +50,10 @@ public class Navigation {
                 initUI("CusLibrary.fxml");
                 window.setTitle("LIBRARY");
                 break;
+            case PROFILE:
+                initUI("CusProfile.fxml");
+                window.setTitle("PROFILE");
+                break;
             default:
                 new Alert(Alert.AlertType.ERROR, "Not suitable Window found!").show();
         }
