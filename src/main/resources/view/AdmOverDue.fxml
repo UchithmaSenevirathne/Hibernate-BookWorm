@@ -9,14 +9,13 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane fx:id="OverDuePane" prefHeight="735.0" prefWidth="984.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.AdmOverDueController">
    <children>
       <AnchorPane prefHeight="735.0" prefWidth="984.0" style="-fx-background-color: white; -fx-background-radius: 20;">
          <children>
             <ImageView fitHeight="735.0" fitWidth="984.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../assets/OverDue.png" />
+                  <Image url="@../assets/CusLib.png" />
                </image>
             </ImageView>
             <Label layoutX="67.0" layoutY="38.0" text="OverDues">
@@ -24,27 +23,12 @@
                   <Font name="SansSerif Bold" size="26.0" />
                </font>
             </Label>
-            <Label layoutX="655.0" layoutY="153.0" text="OVERDUES">
-               <font>
-                  <Font name="SansSerif Regular" size="12.0" />
-               </font>
-            </Label>
-            <Label layoutX="796.0" layoutY="192.0" text="10000" textFill="WHITE">
-               <font>
-                  <Font name="SansSerif Bold" size="20.0" />
-               </font>
-            </Label>
-            <Label layoutX="53.0" layoutY="381.0" text="OverDue Details">
-               <font>
-                  <Font name="SansSerif Bold" size="15.0" />
-               </font>
-            </Label>
             <TextField fx:id="txtSearch" layoutX="67.0" layoutY="203.0" onAction="#txtSearchOnAction" prefHeight="40.0" prefWidth="384.0" promptText="find OverDue Details" style="-fx-background-color: white;">
                <font>
                   <Font size="13.0" />
                </font>
             </TextField>
-            <TableView fx:id="OverDueTable" layoutX="53.0" layoutY="444.0" prefHeight="248.0" prefWidth="877.0">
+            <TableView fx:id="OverDueTable" layoutX="21.0" layoutY="329.0" prefHeight="384.0" prefWidth="946.0" style="-fx-background-color: transparent;">
                <columns>
                   <TableColumn fx:id="colBId" prefWidth="75.0" text="Book ID" />
                   <TableColumn fx:id="colTitle" prefWidth="226.0" text="Title" />

@@ -20,6 +20,7 @@ import lk.ijse.entity.Branch;
 import lk.ijse.service.ServiceFactory;
 import lk.ijse.service.custom.BookService;
 import lk.ijse.service.custom.BranchService;
+import lk.ijse.service.custom.CountService;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -78,6 +79,9 @@ public class AdmBookController {
     @FXML
     private TextField txtTitle;
 
+    @FXML
+    private Label lblBook;
+
     private int index;
 
     BookService bookService = (BookService) ServiceFactory.getServiceFactory().getService(ServiceFactory.ServiceTypes.BOOK);
@@ -86,11 +90,19 @@ public class AdmBookController {
 
     BranchService branchService = (BranchService) ServiceFactory.getServiceFactory().getService(ServiceFactory.ServiceTypes.BRANCH);
 
+    CountService countService = (CountService) ServiceFactory.getServiceFactory().getService(ServiceFactory.ServiceTypes.COUNT);
+
     public void initialize(){
         setCellValueFactory();
         loadAllBooks();
         setComboData();
         initUi();
+        setLabels();
+    }
+
+    private void setLabels() {
+        String book = String.valueOf(countService.getBookCount());
+        lblBook.setText(book);
     }
 
     private void setCellValueFactory(){

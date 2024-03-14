@@ -9,7 +9,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane fx:id="AdmBorrowPane" prefHeight="735.0" prefWidth="984.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.AdmBorrowingManageController">
    <children>
       <AnchorPane prefHeight="735.0" prefWidth="984.0" style="-fx-background-color: white; -fx-background-radius: 20;">
@@ -29,7 +28,7 @@
                   <Font name="SansSerif Regular" size="12.0" />
                </font>
             </Label>
-            <Label layoutX="147.0" layoutY="292.0" text="10000" textFill="WHITE">
+            <Label fx:id="lblBorrow" layoutX="159.0" layoutY="292.0" text="10" textFill="WHITE">
                <font>
                   <Font name="SansSerif Bold" size="20.0" />
                </font>
@@ -49,7 +48,7 @@
                   <Font name="SansSerif Regular" size="12.0" />
                </font>
             </Label>
-            <Label layoutX="336.0" layoutY="292.0" text="10000" textFill="WHITE">
+            <Label fx:id="lblReturn" layoutX="350.0" layoutY="292.0" text="10" textFill="WHITE">
                <font>
                   <Font name="SansSerif Bold" size="20.0" />
                </font>

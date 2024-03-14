@@ -16,6 +16,7 @@ import lk.ijse.dto.tm.AdminTM;
 import lk.ijse.dto.tm.BookTM;
 import lk.ijse.service.ServiceFactory;
 import lk.ijse.service.custom.UserService;
+import lk.ijse.validate.Validation;
 
 import java.util.Optional;
 
@@ -113,18 +114,31 @@ public class AdminManageController {
         String userName = txtUserName.getText();
         String password = txtPassword.getText();
 
-        if (btnSave.getText().equals("SAVE")){
-            boolean saved = userService.saveUser(new UserDTO(userName, name, password, "ADM"));
+        if (validateAdmin(name, userName, password)) {
 
-            if (saved){
-                System.out.println("saved user");
+            if (btnSave.getText().equals("SAVE")) {
+                boolean saved = userService.saveUser(new UserDTO(userName, name, password, "ADM"));
+
+                if (saved) {
+                    System.out.println("saved user");
+                }
+            } else if (btnSave.getText().equals("UPDATE")) {
+                userService.updateUser(new UserDTO(userName, name, password, "ADM"));
             }
-        } else if (btnSave.getText().equals("UPDATE")) {
-            userService.updateUser(new UserDTO(userName, name, password, "ADM"));
-        }
 
-        loadAllAdmins();
-        initUi();
+            loadAllAdmins();
+            initUi();
+        }
+    }
+
+    private boolean validateAdmin(String name, String userName, String password) {
+        if(!Validation.validation(name, txtName,"[A-Za-zA-Z]+")){
+            return false;
+        }
+        if(!Validation.validation(userName, txtUserName,"[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}")){
+            return false;
+        }
+        return true;
     }
 
     @FXML

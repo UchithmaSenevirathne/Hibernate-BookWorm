@@ -7,6 +7,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import lk.ijse.service.ServiceFactory;
 import lk.ijse.service.custom.UserService;
+import lk.ijse.validate.Validation;
 
 import static lk.ijse.controller.SignInController.LoginPageUserName;
 
@@ -44,18 +45,29 @@ public class CusProfileController {
         String newUserName = txtUserName.getText();
         String olsUserName = txtOldUserName.getText();
 
-        boolean isOld = userService.checkOldPwd(name, olsUserName, oldPwd);
+        if (validationUser(newUserName, newPwd)) {
+            boolean isOld = userService.checkOldPwd(name, olsUserName, oldPwd);
 
-        if (isOld){
-            if (newPwd.equals(rePwd)) {
-                boolean updateUser = userService.updateProfile(olsUserName, newUserName, rePwd);
+            if (isOld) {
+                if (newPwd.equals(rePwd)) {
+                    txtRePassword.setStyle(null);
 
-                if (updateUser){
-                    System.out.println("User Profile Updated");
+                    boolean updateUser = userService.updateProfile(olsUserName, newUserName, rePwd);
+
+                    if (updateUser) {
+                        System.out.println("User Profile Updated");
+                    }
+                } else {
+                    txtRePassword.setStyle("-fx-background-color: rgba(255,0,0,0.2)");
                 }
-            }else {
-                new Alert(Alert.AlertType.ERROR, "New Password and ReEntered Password not Same").show();
             }
         }
+    }
+
+    private boolean validationUser(String newUserName, String newPwd) {
+        if(!Validation.validation(newUserName, txtUserName,"[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}")){
+            return false;
+        }
+        return true;
     }
 }

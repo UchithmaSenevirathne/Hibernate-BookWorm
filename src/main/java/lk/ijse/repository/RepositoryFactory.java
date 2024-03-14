@@ -12,7 +12,7 @@ public class RepositoryFactory {
     }
 
     public enum RepositoryTypes{
-        USER,BOOK,BRANCH,BORROWINGDETAILS,QUERY
+        USER,BOOK,BRANCH,BORROWINGDETAILS,QUERY,COUNT
     }
 
     public SuperRepository getRepository(RepositoryTypes repositoryTypes){
@@ -28,6 +28,8 @@ public class RepositoryFactory {
                 return new BorrowingDetailsRepositoryImpl();
             case QUERY:
                 return new QueryRepositoryImpl();
+            case COUNT:
+                return new CountRepositoryImpl();
             default:
                 return null;
         }

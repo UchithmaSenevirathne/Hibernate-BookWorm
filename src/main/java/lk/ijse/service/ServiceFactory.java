@@ -12,7 +12,7 @@ public class ServiceFactory {
     }
 
     public enum ServiceTypes{
-        USER,BOOK,BRANCH,BORROWINGDETAILS,QUERY
+        USER,BOOK,BRANCH,BORROWINGDETAILS,QUERY,COUNT
     }
 
     public SuperService getService(ServiceTypes serviceTypes){
@@ -27,6 +27,8 @@ public class ServiceFactory {
                 return new BorrowingDetailsServiceImpl();
             case QUERY:
                 return new QueryServiceImpl();
+            case COUNT:
+                return new CountServiceImpl();
             default:
                 return null;
         }

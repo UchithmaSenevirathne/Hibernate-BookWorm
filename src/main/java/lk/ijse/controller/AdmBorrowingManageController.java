@@ -18,6 +18,7 @@ import lk.ijse.dto.tm.DiscoverTM;
 import lk.ijse.entity.BorrowingDetails;
 import lk.ijse.service.ServiceFactory;
 import lk.ijse.service.custom.BorrowingDetailsService;
+import lk.ijse.service.custom.CountService;
 import lk.ijse.service.custom.QueryService;
 import lk.ijse.service.custom.impl.QueryServiceImpl;
 
@@ -55,6 +56,13 @@ public class AdmBorrowingManageController {
     @FXML
     private TextField txtSearch;
 
+    @FXML
+    private Label lblBorrow;
+
+    @FXML
+    private Label lblReturn;
+
+
     private int index;
 
     private final ObservableList<BorrowingTM> borrowingTMS = FXCollections.observableArrayList();
@@ -62,12 +70,22 @@ public class AdmBorrowingManageController {
     QueryService queryService = (QueryService) ServiceFactory.getServiceFactory().getService(ServiceFactory.ServiceTypes.QUERY);
 
     BorrowingDetailsService borrowingDetailsService = (BorrowingDetailsService) ServiceFactory.getServiceFactory().getService(ServiceFactory.ServiceTypes.BORROWINGDETAILS);
+    CountService countService = (CountService) ServiceFactory.getServiceFactory().getService(ServiceFactory.ServiceTypes.COUNT);
 
     AdminNavPane adminNavPane;
 
     public void initialize(){
         setCellValueFactory();
         loadAllBorrowings();
+        setLabels();
+    }
+
+    private void setLabels() {
+        String borrow = String.valueOf(countService.getBorrowCount());
+        lblBorrow.setText(borrow);
+
+        String returned = String.valueOf(countService.getReturnCount());
+        lblReturn.setText(returned);
     }
 
     private void setCellValueFactory(){
