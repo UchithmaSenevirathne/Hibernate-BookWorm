@@ -9,7 +9,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="735.0" prefWidth="984.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.CusLibraryController">
    <children>
       <AnchorPane prefHeight="735.0" prefWidth="984.0" style="-fx-background-color: white; -fx-background-radius: 20;">
@@ -24,7 +23,7 @@
                   <Font name="SansSerif Bold" size="26.0" />
                </font>
             </Label>
-            <TableView fx:id="bookTable" layoutX="21.0" layoutY="328.0" onMouseClicked="#tblOnAction" prefHeight="386.0" prefWidth="945.0" style="-fx-background-color: transparent;">
+            <TableView fx:id="bookTable" layoutX="21.0" layoutY="328.0" onMouseClicked="#tblOnAction" prefHeight="386.0" prefWidth="945.0" style="-fx-background-color: transparent;" stylesheets="@../style/tableView.css">
                <columns>
                   <TableColumn fx:id="colTitle" prefWidth="306.0" text="Book Name" />
                   <TableColumn fx:id="colBranch" prefWidth="148.0" text="Branch" />

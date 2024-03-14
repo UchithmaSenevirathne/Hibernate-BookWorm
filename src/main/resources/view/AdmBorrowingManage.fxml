@@ -53,7 +53,7 @@
                   <Font name="SansSerif Bold" size="20.0" />
                </font>
             </Label>
-            <TableView fx:id="BorrowTable" layoutX="53.0" layoutY="436.0" onMouseClicked="#tableOnAction" prefHeight="263.0" prefWidth="879.0">
+            <TableView fx:id="BorrowTable" layoutX="53.0" layoutY="436.0" onMouseClicked="#tableOnAction" prefHeight="263.0" prefWidth="879.0" stylesheets="@../style/tableView.css">
               <columns>
                 <TableColumn fx:id="colName" prefWidth="107.0" text="User" />
                 <TableColumn fx:id="colBID" prefWidth="70.0" text="Book ID" />

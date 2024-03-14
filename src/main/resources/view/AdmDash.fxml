@@ -83,7 +83,7 @@
                   <Font size="13.0" />
                </font>
             </TextField>
-            <TableView fx:id="borrowTbl" layoutX="53.0" layoutY="444.0" prefHeight="248.0" prefWidth="877.0">
+            <TableView fx:id="borrowTbl" layoutX="53.0" layoutY="444.0" prefHeight="248.0" prefWidth="877.0" stylesheets="@../style/tableView.css">
                <columns>
                   <TableColumn fx:id="colBId" prefWidth="75.0" text="Book ID" />
                   <TableColumn fx:id="colTitle" prefWidth="226.0" text="Title" />

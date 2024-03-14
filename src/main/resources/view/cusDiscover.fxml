@@ -28,7 +28,7 @@
                   <Font name="SansSerif Regular" size="15.0" />
                </font>
             </Label>
-            <TableView fx:id="bookTable" layoutX="54.0" layoutY="456.0" onMouseClicked="#tblOnAction" prefHeight="248.0" prefWidth="877.0">
+            <TableView fx:id="bookTable" layoutX="54.0" layoutY="456.0" onMouseClicked="#tblOnAction" prefHeight="248.0" prefWidth="877.0" stylesheets="@../style/tableView.css">
                <columns>
                   <TableColumn fx:id="colBId" prefWidth="75.0" text="Book ID" />
                   <TableColumn fx:id="colTitle" prefWidth="226.0" text="Title" />

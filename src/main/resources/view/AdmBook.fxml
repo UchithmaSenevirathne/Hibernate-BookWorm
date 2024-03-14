@@ -45,7 +45,7 @@
                   <Font size="13.0" />
                </font>
             </TextField>
-            <TableView fx:id="BookTbl" layoutX="53.0" layoutY="444.0" onMouseClicked="#tblOnAction" prefHeight="248.0" prefWidth="877.0">
+            <TableView fx:id="BookTbl" layoutX="53.0" layoutY="444.0" onMouseClicked="#tblOnAction" prefHeight="248.0" prefWidth="877.0" stylesheets="@../style/tableView.css">
                <columns>
                   <TableColumn fx:id="colBId" prefWidth="75.0" text="Book ID" />
                   <TableColumn fx:id="colTitle" prefWidth="193.0" text="Title" />

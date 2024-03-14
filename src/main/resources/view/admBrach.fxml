@@ -17,7 +17,7 @@
             <Font name="SansSerif Bold" size="18.0" />
          </font>
       </Label>
-      <TableView fx:id="branchTbl" layoutX="36.0" layoutY="209.0" onMouseClicked="#tblOnAction" prefHeight="331.0" prefWidth="428.0">
+      <TableView fx:id="branchTbl" layoutX="36.0" layoutY="250.0" onMouseClicked="#tblOnAction" prefHeight="290.0" prefWidth="428.0" stylesheets="@../style/tableView.css">
         <columns>
           <TableColumn fx:id="colId" prefWidth="131.0" text="BRANCH ID" />
           <TableColumn fx:id="colBranch" prefWidth="296.0" text="BRANCH NAME" />
