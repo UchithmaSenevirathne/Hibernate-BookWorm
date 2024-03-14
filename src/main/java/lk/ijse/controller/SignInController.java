@@ -40,13 +40,30 @@ public class SignInController {
     public void initialize(){
         txtPassword.setVisible(false);
     }
+
+    String password = "";
+    @FXML
+    void showPwdOnAction(ActionEvent event) {
+        if (checkBox.isSelected()){
+            password = hidePassword.getText();
+            txtPassword.setText(password);
+
+            hidePassword.setVisible(false);
+            txtPassword.setVisible(true);
+        } else {
+            password = txtPassword.getText();
+            hidePassword.setText(password);
+
+            txtPassword.setVisible(false);
+            hidePassword.setVisible(true);
+        }
+    }
+
     @FXML
     void btnLoginOnAction(ActionEvent event) {
         LoginPageUserName = txtUserName.getText();
-        String password = hidePassword.getText();
 
         try {
-
             boolean isIn = userService.searchUser(LoginPageUserName, password);
             if (!isIn) {
                 new Alert(Alert.AlertType.WARNING, "Invalid UserName or Password").show();
@@ -118,21 +135,5 @@ public class SignInController {
         stage.centerOnScreen();
     }
 
-    String password = "";
-    @FXML
-    void showPwdOnAction(ActionEvent event) {
-        if (checkBox.isSelected()){
-            password = hidePassword.getText();
-            txtPassword.setText(password);
 
-            hidePassword.setVisible(false);
-            txtPassword.setVisible(true);
-        } else {
-            password = txtPassword.getText();
-            hidePassword.setText(password);
-
-            txtPassword.setVisible(false);
-            hidePassword.setVisible(true);
-        }
-    }
 }
