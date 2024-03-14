@@ -40,7 +40,7 @@ public class SignUpController {
         String password = txtConfirmPwd.getText();
 
         try {
-            if (validateUser(name, userName)) {
+            if (validateUser(name, userName, password)) {
                 boolean saveUser = userService.saveUser(new UserDTO(userName, name, password, "CUS"));
 
                 if (saveUser) {
@@ -63,11 +63,14 @@ public class SignUpController {
         }
     }
 
-    private boolean validateUser(String name, String userName) {
+    private boolean validateUser(String name, String userName, String password) {
         if(!Validation.validation(name, txtName,"[A-Za-zA-Z]+")){
             return false;
         }
         if(!Validation.validation(userName, txtUserName,"[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}")){
+            return false;
+        }
+        if(!Validation.validation(password, txtPassword,"(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}")){
             return false;
         }
         return true;

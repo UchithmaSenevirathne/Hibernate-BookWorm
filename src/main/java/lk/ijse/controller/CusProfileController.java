@@ -68,6 +68,9 @@ public class CusProfileController {
         if(!Validation.validation(newUserName, txtUserName,"[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}")){
             return false;
         }
+        if(!Validation.validation(newPwd, txtNewPwd,"(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}")){
+            return false;
+        }
         return true;
     }
 }

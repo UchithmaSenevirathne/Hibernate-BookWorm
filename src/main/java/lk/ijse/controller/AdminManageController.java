@@ -138,6 +138,9 @@ public class AdminManageController {
         if(!Validation.validation(userName, txtUserName,"[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}")){
             return false;
         }
+        if(!Validation.validation(password, txtPassword,"(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}")){
+            return false;
+        }
         return true;
     }
 
