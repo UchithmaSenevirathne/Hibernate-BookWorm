@@ -55,21 +55,28 @@ public class QueryServiceImpl implements QueryService {
 
         List<OverDueDTO> overDueDTOS = new ArrayList<>();
 
-        Timestamp currentDate = new Timestamp(System.currentTimeMillis());
+//        Timestamp currentDate = new Timestamp(System.currentTimeMillis());
 
         for (Object[] o : objects){
-            Timestamp returnDate = (Timestamp) o[5];
-            Timestamp dueDate = (Timestamp) o[4];
-
-            if (returnDate == null && dueDate.before(currentDate)) {
-                overDueDTOS.add(new OverDueDTO(
-                        (Integer) o[0],
-                        (String) o[1],
-                        (String) o[2],
-                        (Timestamp) o[3],
-                        (Timestamp) o[4]
-                ));
-            }
+            overDueDTOS.add(new OverDueDTO(
+                    (Integer) o[0],
+                    (String) o[1],
+                    (String) o[2],
+                    (Timestamp) o[3],
+                    (Timestamp) o[4]
+            ));
+//            Timestamp returnDate = (Timestamp) o[5];
+//            Timestamp dueDate = (Timestamp) o[4];
+//
+//            if (returnDate == null && dueDate.before(currentDate)) {
+//                overDueDTOS.add(new OverDueDTO(
+//                        (Integer) o[0],
+//                        (String) o[1],
+//                        (String) o[2],
+//                        (Timestamp) o[3],
+//                        (Timestamp) o[4]
+//                ));
+//            }
         }
         session.close();
         return overDueDTOS;
@@ -80,9 +87,10 @@ public class QueryServiceImpl implements QueryService {
         session = SessionFactoryConfig.getInstance().getSession();
 
         queryRepository.setSession(session);
-        List<BorrowingDetails> borrowingDetails = queryRepository.filterOverDues();
+//        List<BorrowingDetails> borrowingDetails = queryRepository.filterOverDues();
+        List<Object[]> objects = queryRepository.getAllOverDues();
 
-        if (borrowingDetails.isEmpty()){
+        if (objects.isEmpty()){
             session.close();
             return false;
 

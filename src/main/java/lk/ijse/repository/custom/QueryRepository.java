@@ -13,7 +13,7 @@ public interface QueryRepository extends SuperRepository {
 
     List<Object[]> getAllOverDues();
 
-    List<BorrowingDetails> filterOverDues();
+//    List<BorrowingDetails> filterOverDues();
 
     List<Object[]> getLibrary(String username);
 }
