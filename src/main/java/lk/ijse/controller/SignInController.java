@@ -63,18 +63,25 @@ public class SignInController {
     void btnLoginOnAction(ActionEvent event) {
         LoginPageUserName = txtUserName.getText();
 
-        try {
-            boolean isIn = userService.searchUser(LoginPageUserName, password);
-            if (!isIn) {
-                new Alert(Alert.AlertType.WARNING, "Invalid UserName or Password").show();
-            } else {
-                System.out.println("user in");
-                isAdmin(LoginPageUserName);
-            }
+        if (hidePassword.isVisible()) {
 
-        } catch (Exception e) {
-            new Alert(Alert.AlertType.ERROR,e.getMessage()).show();
+            password = hidePassword.getText();
+        }else {
+            password = txtPassword.getText();
         }
+
+            try {
+                boolean isIn = userService.searchUser(LoginPageUserName, password);
+                if (!isIn) {
+                    new Alert(Alert.AlertType.WARNING, "Invalid UserName or Password").show();
+                } else {
+                    System.out.println("user in");
+                    isAdmin(LoginPageUserName);
+                }
+
+            } catch (Exception e) {
+                new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+            }
     }
 
     private void isAdmin(String username) {
